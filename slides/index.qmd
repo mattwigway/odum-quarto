@@ -9,6 +9,7 @@ format:
         theme: [default, unc.scss]
         logo: UNC_logo_RGB.png
         slide-number: true
+        code-line-numbers: false
 execute:
     eval: false
     include: true
@@ -193,13 +194,20 @@ R code
 
 - We're going to create a very simple Quarto document that has a title and author, and runs some simple data analysis using datasets built in to R
 - We'll walk through the creation of this document step-by-step
-- There is also an example document `intro.qmd` in the examples file
+
+## Setting up the environment
+
+- To keep everything together, we'll put everything in a single folder and RStudio project
+- In RStudio, select File -> New Project -> New Directory -> New Project
+    - There are also options to create Quarto websites, books, etc.
+    - We'll talk about these later and create them manually, but if you knew you wanted your project to be a website, book, etc. you could also specify that now
 
 ## Creating a new file
 
 - In RStudio, choose File -> New File -> Quarto Document and fill in the title and author
 - Leave the other options at their defaults
 - Press "Create empty document"
+- Save the file as `intro.qmd` in the folder created for your project
 
 ## Creating the front matter
 
@@ -274,7 +282,7 @@ library(tidyverse)
 - Modify the cell that calculates the mean height to store the result in a variable
 
 ```{{r}}
-mean_height = mean(height)
+mean_height = mean(trees$height)
 ```
 
 - Add markdown below it that says
@@ -345,6 +353,74 @@ ggplot(trees, aes(x=Height)) +
     - For instance, if you put `lang: zh-CN` for Simplified Chinese, the reference would say 图 1
 - [Language codes are described here](https://www.w3.org/International/questions/qa-choosing-language-tags)
 
+## Tables
+
+- Another common element of reports and documents is are tables
+- There are [two ways to create a table in Quarto](https://quarto.org/docs/authoring/tables.html): Markdown tables and tables created by code
+
+## Markdown table syntax
+
+- A table in Markdown looks like this
+
+```markdown
+| Statistic | Value                      |
+|-----------|----------------------------|
+| Mean      | `{r} mean(trees$Height)`   |
+| Median    | `{r} median(trees$Height)` |
+| SD        | `{r} sd(trees$Height)`     |
+```
+
+- Add this to your document (not in a code cell)
+
+## Markdown table syntax
+
+- I've aligned the column breaks for readability, but this is optional
+- This would do the same thing
+
+```markdown
+| Statistic | Value |
+|---|---|
+| Mean | `{r} mean(trees$Height)` |
+| Median | `{r} median(trees$Height)` |
+| SD | `{r} sd(trees$Height)` |
+```
+
+## Table captions
+
+- To add a caption to a table, add a blank line _below_ the table, and then a line starting with `: ` followed by the caption
+- The caption will generally render above the table (unless overridden by a template, which we'll discuss shortly), even though it is written below the table
+
+```markdown
+| Statistic | Value                      |
+|-----------|----------------------------|
+| Mean      | `{r} mean(trees$Height)`   |
+| Median    | `{r} median(trees$Height)` |
+| SD        | `{r} sd(trees$Height)`     |
+
+: Descriptive statistics of tree height (feet)
+```
+
+## Table numbering and cross-referencing
+
+- Adding `{#tbl-<label>}` after the cpation will number the table and allow it to be cross-referenced
+```markdown
+| Statistic | Value                      |
+|-----------|----------------------------|
+| Mean      | `{r} mean(trees$Height)`   |
+| Median    | `{r} median(trees$Height)` |
+| SD        | `{r} sd(trees$Height)`     |
+
+: Descriptive statistics of tree height (feet) {#tbl-desc}
+
+@tbl-desc shows...
+```
+
+## Creating tables in code
+
+- Sometime you won't want to create your tables manually like this
+- You can create them from code as well
+- How you do this depends on the language, but in R you can use the [gt](https://gt.rstudio.com/) package, or in Python the [tabulate](https://pypi.org/project/tabulate/) package
+
 ## Execute options
 
 - Sometimes you want to include all of your code in your rendered document (for instance, for a technical appendix documenting how you performed an analysis)
@@ -354,7 +430,7 @@ ggplot(trees, aes(x=Height)) +
 ## Execute options: run code, but don't show it
 
 Adding 
-```
+```yaml
 execute:
     echo: false
 ```
@@ -365,7 +441,7 @@ to your front matter will mean that code is still executed, and outputs (plots, 
 ## Execute options: run code, but don't show output
 
 Adding
-```
+```yaml
 execute:
     echo: false
     output: false
@@ -373,7 +449,7 @@ execute:
 
 or
 
-```
+```yaml
 execute:
     include: false
 ```
@@ -396,11 +472,12 @@ will disable output from the cells as well
 - For example, if you were writing documentation, a code cell might show how to install the package you're documenting, but you don't want to install it every time you render the document
 - Setting `#| eval: false` will disable execution of a cell
 - You can also set
-```
+```yaml
 execute:
     eval: false
 ```
 to disable execution of every cell in the document
+
 - I sometimes disable execution if I want the code displayed to be different from the code actually run (for instance, in a [code demo where I add additional code to adjust how the chart displays in the output](https://github.com/mattwigway/MyFirstFourStepModel/blob/90186cb02aba5900a75e81856d946d1b36fd4133/presentations_and_publications/ite2024/index.qmd#L172))
 
 ## Citations
@@ -460,7 +537,7 @@ to disable execution of every cell in the document
 
 - To use a bibliography in Quarto, you need to add it to your front matter
 
-```
+```yaml
 bibliography: references.bib
 ```
 
@@ -494,7 +571,7 @@ bibliography: references.bib
 ## Using the citation style
 
 - To change citation styles, just add to your front matter
-```
+```yaml
 csl: apa.csl
 ```
 - Re-render your document and note that the citation styles have updated
@@ -512,7 +589,7 @@ csl: apa.csl
 ## Creating self-contained HTML documents
 
 - If you add the following to your front matter, you can create a _self-contained_ HTML document that embeds all images, style sheets, etc. (it will be larger)
-```
+```yaml
 format:
     html:
         embed-resources: true
@@ -523,7 +600,7 @@ format:
 - So far, we have only used the default HTML output from Quarto
 - Quarto also supports output to PDF or Word
 - To output your file to PDF, just add to your front matter
-```
+```yaml
 format: pdf
 ```
 - Re-render your document to see that the output is now a PDF
@@ -540,7 +617,7 @@ format: pdf
 - Options for formats are created by indenting them below the name of the format
 - For instance, adding this to your front matter will change the margins and fonts
 
-```
+```yaml
 format:
     pdf:
         margin-left: 1in
@@ -554,7 +631,7 @@ format:
 ## Word output
 
 - You can output to Microsoft Word format as well by specifying in your front matter
-```
+```yaml
 format: docx
 ```
 - There are fewer options for Word output, but you can control what it looks like by [creating a reference document](https://quarto.org/docs/output-formats/ms-word-templates.html)
@@ -563,13 +640,13 @@ format: docx
 ## Custom word output
 
 - You can create a reference document by running
-```
+```sh
 quarto pandoc -o custom-reference-doc.docx --print-default-data-file reference.docx
 ```
 - This will create a file `custom-reference-doc.docx` which contains all styles used by Quarto. You can modify the styles in Word to change how Quarto output appears
 - Note that you must modify the _styles_ (e.g. using the styles pane), not just the text
 - To use the reference document, just add to your front matter
-```
+```yaml
 format:
     docx:
         reference-doc: custom-reference-doc.docx
@@ -587,7 +664,7 @@ format:
 - Then change the output format from `pdf` to `trb-pdf`, and remove all PDF-specific options
 - Also remove the `csl: apa.csl` line, as the citation format is handled by the template 
 - The format section of your front matter should look like
-```
+```yaml
 format:
     trb-pdf: default
 ```
@@ -613,6 +690,7 @@ format:
 
 - In RStudio, choose File -> New -> Quarto presentation... and choose "create empty document"
 - RStudio will default to a RevealJS presentation
+- Save the presentation as `slides.qmd`
 
 ## Quarto presentation syntax
 
@@ -712,7 +790,7 @@ format:
 ## Incremental lists
 
 - You can make all lists incremental (appearing one item at a time) by specifying incremental in the front matter
-```
+```yaml
 format:
     revealjs:
         incremental: true
@@ -749,7 +827,7 @@ Make sure to point out leaf colors
 
 - The revealjs output format has a number of ways to customize the presentation
 - For instance, I usually use these settings:
-```
+```yaml
 format:
     revealjs:
         width: 1600
@@ -764,7 +842,7 @@ format:
 ## RevealJS themes
 
 - You can also change themes, [many are available](https://quarto.org/docs/presentations/revealjs/themes.html), e.g.
-```
+```yaml
 format:
     revealjs:
         theme: dark
@@ -780,8 +858,310 @@ format:
 ## Creating a PowerPoint presentation
 
 - If you need a PowerPoint-formatted output, you can set in your front matter
-```
+```yaml
 format: pptx
 ```
 - Like Word documents, you can create [custom PowerPoint templates](https://quarto.org/docs/presentations/powerpoint.html#powerpoint-templates)
 - You can also use incremental lists with PowerPoint
+
+## Presentations are just documents
+
+- If you change the format back to `html`, your document will render just fine
+- Instead of being split into slides, everything will be layed out like a document
+- Useful for sharing notes/content outside of a presentation
+- _Speaker notes show up as well, keep in mind when distributing_
+
+## Using the Quarto command line interface
+
+- So far, we've mostly interacted with Quarto through the RStudio interface
+- Quarto has a command line interface as well through the `quarto` command
+
+
+
+## What is the command line?
+
+- A way of interacting with the computer using a textual rather than graphical interface
+- To use the command line, you run _commands_. Each command has zero or more _options_ and _arguments_
+- When using the command line, you are always in a _working directory_. By default, commands will apply to files in this directory/folder.
+
+
+
+<!-- _class: center blank -->
+
+## What is the command line?
+
+![](cli-demo.svg){fig-alt="demo of the command line"}
+
+## Anatomy of a command
+
+`ls -l slides`
+
+<br/>
+<br/>
+
+- `ls`: Command (`ls` - list files) - always first item
+- `-l`: Option (`-l` - long format) - always starts with `-` or `--`
+- `slides`: Argument (list files in the directory `slides`)
+- Press enter to run a command
+
+
+
+## Specifying folders/directories
+
+- Nested directories are separated with `/`
+- `Documents/odum` refers to the `odum` folder inside the `Documents` folder
+- `Documents/odum/introduction.txt` refers to `introduction.txt` inside `odum` inside `Documents`
+- Any number of nested directories and files is a _path_
+
+
+
+## Autocompletion
+
+- When typing a command or a directory, pressing `TAB` will autocomplete
+- If there is more than one possibility, `TAB` `TAB` will show possibilities
+
+
+
+## Escaping spaces
+
+- Spaces separate options and arguments
+- If you want to refer to a file or folder with a space in it, two options
+    - Put a `\` before the space
+        - e.g. `Documents/odum\ quarto`
+    - Enclose the entire path in `'` or `"`
+        - e.g. `"Documents/odum quarto"`
+- Autocompletion will automatically escape any spaces it autocompletes
+
+## The _working directory_
+
+- When you use the command line, there is always a working directory
+- This is the folder that the terminal is running "in"
+- Any commands you type will refer to files in this folder, unless you specify a complete path
+
+
+
+## Useful commands
+
+- `cd directory`: Change the working directory
+    - `cd ..`: Change to the parent directory (e.g. if in `Documents/PLAN_390`, would change to `Documents`)
+- `ls`: list files in the current working directory
+- `mv oldname newname`: rename files or move them between directories
+- `cp oldname newname`: copy file `oldname` to `newname`, which may be in a different directory
+- `mkdir name`: Make a folder/directory `name` in the working directory
+
+## Useful Quarto commands
+
+- `quarto preview <document>`: Preview the document, open in a web browser and automatically update as the document is edited
+- `quarto render <document>`: Render the document to its final output format
+
+## Quarto _projects_: working with multiple files
+
+- At some point you will want to integrate multiple Quarto files
+- You can do this using a Quarto _project_
+- Quarto projects
+    - define shared front matter across a group of documents
+    - allow integrating multiple files into a single output
+    - allow creation of specialized output, e.g. websites or books
+
+## Structure of a Quarto project
+
+- The main file is `_quarto.yml` which should be in the same folder as your Quarto documents
+    - For better organization, you can also put Quarto documents in subfolders of the project
+
+## Creating a Quarto project
+
+- Create a `_quarto.yml` file in the same folder as your other files
+- Anything in this file will be treated as if it were in the front matter of all of the Quarto files in the project
+    - Unless specifically overridden
+- You also have project-specific options, such as where to put rendered output
+- Add the following to the `_quarto.yml` file
+```yaml
+project:
+    output-dir: docs
+```
+- This will render project output to the `docs/` folder
+    - You can render to any folder, but rendering to `docs/` will let you easily post your rendered documents to [Github Pages](https://pages.github.com/) by just committing your project to Github
+    - This is how I post these slides on the web, for example
+
+## Common options for all documents
+
+- You can add other code to `_quarto.yml` that will be treated as if it were in the front matter of all documents in the project
+- For instance, let's put our bibliography in `_quarto.yml`
+- Add the following
+```yaml
+bibliography: references.bib
+```
+and remove the corresponding lines from your `intro.qmd` files
+
+## Rendering your Quarto project
+
+- In the terminal, run `quarto render`
+- Note that both your presentation and your document are in the `docs/` folder
+
+## Special types of Quarto projects: websites
+
+- A website is just a special type of Quarto project that gets rendered with navigation features, etc.
+- To create a Quarto website, just add a `type: website` under the project information in `_quarto.yml`
+```yaml
+project:
+    type: website
+```
+
+## Configuring a Quarto website
+
+- You can configure your Quarto website with the `website:` section in `_quarto.yml`
+- For instance, this will add a navigation bar with links for your `intro.qmd` and `slides.qmd` files
+```yaml
+website:
+    title: Black Cherry Trees
+    navbar:
+        left:
+            - href: intro.qmd
+              name: Introduction
+            - href: slides.qmd
+              name: Slides
+```
+
+## Rendering your website
+
+- We want this to display as a website, so remove `format: docx` from your  `intro.qmd` file and set the format of your `slides.qmd` file to `revealjs`
+- Run `quarto preview` to open your website in a web browser
+
+## Creating a default file
+
+- Generally, you would name your main page `index.qmd`
+- This is what folks will see when they open your website
+- If you don't, the first page in the navigation bar will be the default
+    - Or, potentially, a 404 Not Found, depending on where you host your website (more on this shortly)
+
+## Dashboards
+
+- Quarto can be used to create compelling dashboards showing high-level statistics about a dataset
+- For instance, if you have data you collect and need to publish an overview of it, you could create a dashboard
+- By specifying your dashboard with Quarto code, you can re-render and update it when new data comes in, without manually re-doing analysis or creating reports
+- These can be visually compelling, e.g. [this dashboard of requests to the City of Norfolk](https://grrrck.quarto.pub/mynorfolk-dash/)
+
+## Creating a dashboard
+
+- Create a new, empty Quarto document in your folder
+- Call it `dashboard.qmd`
+
+## Dashboard layout
+
+- Dashboards use Markdown headers to divide the page into tabs and rows
+- Level 1 headers (1 `#`) become tabs
+- Level 2 headers (2 `##`) become rows
+- Multiple plots/tables can be placed side-by-side in one row
+
+## The data for our dashboard
+
+- So far we've been using the built-in trees dataset, but there are only so many analyses we can do with this data
+- In keeping with the theme of trees, we'll use a [CSV file of the Durham Street Tree inventory](../durham_trees.csv), which I got from the City of Durham open data portal
+- Go ahead and download that CSV file now
+
+## Setting up the front matter
+
+- Put this in the front matter of your Quarto document
+
+```yaml
+---
+title: Durham Street Trees
+format: dashboard
+execute:
+    echo: false
+---
+```
+
+## Loading data and libraries
+
+Add this code cell just below the front matter, to load the tidyverse library and the data
+
+```{{r}}
+#| include: false
+library(tidyverse)
+data = read_csv("durham_trees.csv")
+```
+
+## Layout of our dashboard
+
+- We will have two rows
+- In the top row, we'll have a large bar plot of tree height
+- In the bottom row, we'll have a bar plot of the most common species, and a heatmap of where the trees are located
+
+## Creating the first row
+
+- Create a row for the height chart by creating a level-2 header
+- The text of the header is ignored, but we want to set a height
+```
+## {height="50%"}
+```
+
+## Adding the bar plot
+
+- Add the following code cell to create the bar plot by tree height
+
+```{{r}}
+#| fig-alt: Graph of tree height showing that trees 0-20 feet tall are by far most common
+ggplot(data, aes(x=heightft)) +
+    geom_bar()
+```
+
+## Adding the second row
+
+- Add another row below
+
+```
+## {height="50%"}
+```
+
+## Adding the popularity by genus
+
+```{{r}}
+#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham
+data %>%
+    count(genus) %>%
+    filter(n > 100) %>%
+    arrange(genus) %>%
+    ggplot(aes(y=genus, x=n)) +
+        geom_col()
+```
+
+## Adding the heatmap
+
+```{{r}}
+#| fig-alt: Plot showing the heaviest density of trees near Downtown Durham
+ggplot(data, aes(x=X, y=Y)) +
+    geom_density_2d_filled()
+```
+
+## Add the dashboard to your website navigation
+
+- In your `_quarto.yml`, add to the `navbar: left:` section
+```yaml
+            - href: dashboard.qmd
+              text: Dashboard
+```
+- Preview your website again
+- You could also preview just the dashboard by clicking Render in RStudio with `dashboard.qmd` open
+
+## Publishing your website
+
+- If your content is public, you can publish it to the web
+- The `quarto publish` command knows how to publish to a [number of services](https://quarto.org/docs/publishing/)
+- The most common are Quarto Pub and Github Pages
+    - We'll discuss Quarto Pub
+    - Github Pages is a bit more complicated to set up, as you have to create a Github repository for your content
+    - Plug: take my Git and Github class next month!
+
+## Using Quarto Pub
+
+- Just run `quarto publish` in the directory where your `_quarto.yml` file is
+- The first time you use it, you will be prompted to create an account
+- Your website will be available at `https://<username>.quarto.pub/<site-title>`
+- You can also publish a single document with `quarto publish <document>.qmd`
+
+## Questions/resources
+
+- Quarto has [excellent documentation](https://quarto.org/docs/)
+- Part of my job is assisting folks working on computational projects. Feel free to reach out: <mwbc@unc.edu>
+
