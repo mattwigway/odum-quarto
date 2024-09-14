@@ -1,0 +1,849 @@
+[
+  {
+    "objectID": "slides/index.html#about-me",
+    "href": "slides/index.html#about-me",
+    "title": "Introduction to Quarto",
+    "section": "About me",
+    "text": "About me\n\nAssistant professor of City and Regional Planning\nResearch focus: transportation modeling and simulation\nPhD/MA in Geography from Arizona State, BA from UC Santa Barbara\nThree years experience as transportation modeling software developer"
+  },
+  {
+    "objectID": "slides/index.html#what-is-quarto",
+    "href": "slides/index.html#what-is-quarto",
+    "title": "Introduction to Quarto",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\nDynamic document preparation system\nDocument can mean a lot of things: articles, presentations, books, websites, dashboards, etc.\n\nThese slides are a Quarto document\n\nDynamic means the document can incorporate code that is executed when the document is rendered, so outputs always stay up to date"
+  },
+  {
+    "objectID": "slides/index.html#the-quarto-philosophy",
+    "href": "slides/index.html#the-quarto-philosophy",
+    "title": "Introduction to Quarto",
+    "section": "The Quarto philosophy",
+    "text": "The Quarto philosophy\n\nAnalysis and writing should be intertwined and mutually referential\nContent and analysis should be separate from formatting and presentation\nAnalysis results and output should be separate from analysis procedures and writing"
+  },
+  {
+    "objectID": "slides/index.html#similarities-to-jupyter-notebooks",
+    "href": "slides/index.html#similarities-to-jupyter-notebooks",
+    "title": "Introduction to Quarto",
+    "section": "Similarities to Jupyter Notebooks",
+    "text": "Similarities to Jupyter Notebooks\n\nQuarto and Jupyter both allow mixing code, text, and output\nBoth use Markdown for formatting text\nJupyter Notebooks are in a custom format that mixes code, text, and output all in the same file\nJupyter Notebooks can only be created with notebook-specific software\nQuarto documents are a human-readable format\nOutputs are only included when the document is rendered to an output format\nQuarto documents can be authored with any text editor, and most people write them by hand"
+  },
+  {
+    "objectID": "slides/index.html#similarities-to-r-markdown",
+    "href": "slides/index.html#similarities-to-r-markdown",
+    "title": "Introduction to Quarto",
+    "section": "Similarities to R Markdown",
+    "text": "Similarities to R Markdown\n\nQuarto is more similar to R Markdown\nBoth allow embedding code in Markdown documents\nQuarto allows more languages: Python, Julia, and Observable in addition to R\n\nAnd any other language supported by Jupyter, with some configuration"
+  },
+  {
+    "objectID": "slides/index.html#basic-structure-of-a-quarto-document",
+    "href": "slides/index.html#basic-structure-of-a-quarto-document",
+    "title": "Introduction to Quarto",
+    "section": "Basic structure of a Quarto document",
+    "text": "Basic structure of a Quarto document\n\nFront matter\nMarkdown text\nCode cells"
+  },
+  {
+    "objectID": "slides/index.html#quarto-workflow",
+    "href": "slides/index.html#quarto-workflow",
+    "title": "Introduction to Quarto",
+    "section": "Quarto workflow",
+    "text": "Quarto workflow\n\nAuthor a Quarto document using a text editor (RStudio, VSCode, etc.)\nRun cells interactively as you develop your results\nRender the document to an output format (e.g. HTML, PDF, Word)\n\nExecute all code\nConvert text to formatted text\nInsert images\nResolve citations and cross-references\nApply formatting from template"
+  },
+  {
+    "objectID": "slides/index.html#front-matter",
+    "href": "slides/index.html#front-matter",
+    "title": "Introduction to Quarto",
+    "section": "Front matter",
+    "text": "Front matter\n\nThe front matter of a Quarto document is a section enclosed with ---\nIn between ---, there is YAML-formatted metadata\nGenerally: title, author, and configuration to tell Quarto what kind of document it is, how to format it, and how to run the code in it"
+  },
+  {
+    "objectID": "slides/index.html#front-matter-example",
+    "href": "slides/index.html#front-matter-example",
+    "title": "Introduction to Quarto",
+    "section": "Front matter: example",
+    "text": "Front matter: example\n---\ntitle: Quarto Introduction\nauthor: Matt Bhagat-Conway\n---"
+  },
+  {
+    "objectID": "slides/index.html#markdown",
+    "href": "slides/index.html#markdown",
+    "title": "Introduction to Quarto",
+    "section": "Markdown",
+    "text": "Markdown\n\nText in Quarto documents is formatted using Markdown\nMarkdown is a simple format to specify basic text formatting in a plain-text document\nMarkdown is converted to formatted text when you render your Quarto document\nAnything that is not in front matter or a code cell (discussed shortly) is treated as Markdown"
+  },
+  {
+    "objectID": "slides/index.html#markdown-syntax-paragraphs",
+    "href": "slides/index.html#markdown-syntax-paragraphs",
+    "title": "Introduction to Quarto",
+    "section": "Markdown syntax: paragraphs",
+    "text": "Markdown syntax: paragraphs\n\nA paragraph in Markdown is one or more lines of text with no blank lines between them.\nMultiple lines without line breaks will be treated a single paragraph\n\nA common mistake is to not separate paragraphs with a blank line, and then they run together when rendering\n\n\nThis is one paragraph.\n\nThis is↵\nalso one paragraph.\n\nThis is↵\n↵\ntwo paragraphs"
+  },
+  {
+    "objectID": "slides/index.html#markdown-syntax-section-headers",
+    "href": "slides/index.html#markdown-syntax-section-headers",
+    "title": "Introduction to Quarto",
+    "section": "Markdown syntax: section headers",
+    "text": "Markdown syntax: section headers\n\nSection headers start with 1–6 # characters (with no spaces before them)\nThese correspond to headings level 1 (largest) to 6 (smallest)\nGenerally, you will want to start with level 2 headings, as the document title will be the level 1 heading\n\n## Level 2\n### Level 3\n#### Level 4\n##### Level 5\n###### Level 6"
+  },
+  {
+    "objectID": "slides/index.html#markdown-syntax-bold-and-italic",
+    "href": "slides/index.html#markdown-syntax-bold-and-italic",
+    "title": "Introduction to Quarto",
+    "section": "Markdown syntax: bold and italic",
+    "text": "Markdown syntax: bold and italic\n\nBold text is created by surrounding text with ** _ Italic text is created by surrounding text with _ or *\nThese symbols must immediately precede or follow words/punctuation; there cannot be spaces between the symbol and the text\n\n**Bold text**\n\n_Italic text_\n\n*Italic text*"
+  },
+  {
+    "objectID": "slides/index.html#markdown-syntax-bulleted-lists",
+    "href": "slides/index.html#markdown-syntax-bulleted-lists",
+    "title": "Introduction to Quarto",
+    "section": "Markdown syntax: bulleted lists",
+    "text": "Markdown syntax: bulleted lists\n\nBulleted lists: start each line with - or *\n\n* This is a\n* bulleted list\n\n- This is a\n- bulleted list"
+  },
+  {
+    "objectID": "slides/index.html#markdown-syntax-numbered-lists",
+    "href": "slides/index.html#markdown-syntax-numbered-lists",
+    "title": "Introduction to Quarto",
+    "section": "Markdown syntax: numbered lists",
+    "text": "Markdown syntax: numbered lists\n\nNumbered lists have lines that start with a number followed by a period and a space\nOnly the number of the first item matters; all others will be numbered sequentially (this makes editing easier)\n\n1. This\n1. is\n1. a\n1. list"
+  },
+  {
+    "objectID": "slides/index.html#markdown-syntax-links",
+    "href": "slides/index.html#markdown-syntax-links",
+    "title": "Introduction to Quarto",
+    "section": "Markdown syntax: links",
+    "text": "Markdown syntax: links\n\nYou can add links to other websites; the link text goes in [] and the URL follows in ()\n\n[Odum Institute](https://odum.unc.edu)"
+  },
+  {
+    "objectID": "slides/index.html#quarto-code-cells",
+    "href": "slides/index.html#quarto-code-cells",
+    "title": "Introduction to Quarto",
+    "section": "Quarto: code cells",
+    "text": "Quarto: code cells\n\nA Quarto code cell is delimited by three backticks ``` on lines by themselves\nAfter the first set of backticks, the language used is enclosed in {}\n\n```{r}\nR code\n```\n\nA code cell can contain one or multiple lines of code (or even none)"
+  },
+  {
+    "objectID": "slides/index.html#creating-our-first-quarto-document",
+    "href": "slides/index.html#creating-our-first-quarto-document",
+    "title": "Introduction to Quarto",
+    "section": "Creating our first Quarto document",
+    "text": "Creating our first Quarto document\n\nWe’re going to create a very simple Quarto document that has a title and author, and runs some simple data analysis using datasets built in to R\nWe’ll walk through the creation of this document step-by-step"
+  },
+  {
+    "objectID": "slides/index.html#setting-up-the-environment",
+    "href": "slides/index.html#setting-up-the-environment",
+    "title": "Introduction to Quarto",
+    "section": "Setting up the environment",
+    "text": "Setting up the environment\n\nTo keep everything together, we’ll put everything in a single folder and RStudio project\nIn RStudio, select File -&gt; New Project -&gt; New Directory -&gt; New Project\n\nThere are also options to create Quarto websites, books, etc.\nWe’ll talk about these later and create them manually, but if you knew you wanted your project to be a website, book, etc. you could also specify that now"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-new-file",
+    "href": "slides/index.html#creating-a-new-file",
+    "title": "Introduction to Quarto",
+    "section": "Creating a new file",
+    "text": "Creating a new file\n\nIn RStudio, choose File -&gt; New File -&gt; Quarto Document and fill in the title and author\nLeave the other options at their defaults\nPress “Create empty document”\nSave the file as intro.qmd in the folder created for your project"
+  },
+  {
+    "objectID": "slides/index.html#creating-the-front-matter",
+    "href": "slides/index.html#creating-the-front-matter",
+    "title": "Introduction to Quarto",
+    "section": "Creating the front matter",
+    "text": "Creating the front matter\n\nRStudio already created the front matter for us, but we could edit it now or create it from scratch\nYou need to enclose the title in quotes if it contains a : but otherwise you do not need to\n\n---\ntitle: Tree height analysis\nauthor: Matt Bhagat-Conway\n---\n\nAdd a blank line after the front matter"
+  },
+  {
+    "objectID": "slides/index.html#adding-text",
+    "href": "slides/index.html#adding-text",
+    "title": "Introduction to Quarto",
+    "section": "Adding text",
+    "text": "Adding text\n\nAfter the front matter, anything that isn’t a code cell is treated as Markdown\nWe’ll add a sentence describing that this is an analysis of black cherry tree heights, and we’ll link to the Wikipedia page on black cherry trees: https://en.wikipedia.org/wiki/Black_cherry\nHeaders let us divide up our code into sections\nWe’ll add a level-2 header saying that the first part of our analysis file is loading necessary packages"
+  },
+  {
+    "objectID": "slides/index.html#adding-text-markdown-code",
+    "href": "slides/index.html#adding-text-markdown-code",
+    "title": "Introduction to Quarto",
+    "section": "Adding text: Markdown code",
+    "text": "Adding text: Markdown code\nThis is an analysis of the heights of [black cherry](https://en.wikipedia.org/wiki/Black_cherry) trees.\n\n## Load libraries"
+  },
+  {
+    "objectID": "slides/index.html#adding-a-code-cell",
+    "href": "slides/index.html#adding-a-code-cell",
+    "title": "Introduction to Quarto",
+    "section": "Adding a code cell",
+    "text": "Adding a code cell\n\nNext, we’ll add a code cell that loads the tidyverse library, which we’ll use for data analysis and management\nWe need to tag this cell as an R cell by including {r}\n\n```{r}\nlibrary(tidyverse)\n```"
+  },
+  {
+    "objectID": "slides/index.html#running-that-code-cell",
+    "href": "slides/index.html#running-that-code-cell",
+    "title": "Introduction to Quarto",
+    "section": "Running that code cell",
+    "text": "Running that code cell\n\nWhen developing a Quarto document, you will usually want to run the code interactively\nYou can run a single code cell in RStudio by\n\nClicking the play button in the upper right of the cell\nPutting your cursor in the cell and typing Ctrl/Cmd-shift-enter\n\nYou can also run all the cells above by clicking the down-arrow button\nIf you get an error about tidyverse not being installed, you can just run install.packages(\"tidyverse\") in your console"
+  },
+  {
+    "objectID": "slides/index.html#adding-additional-code-cells",
+    "href": "slides/index.html#adding-additional-code-cells",
+    "title": "Introduction to Quarto",
+    "section": "Adding additional code cells",
+    "text": "Adding additional code cells\n\nAdd two more code cells\nOne should load the data with the code data(trees)\nThe next should calculate the mean height with the code mean(trees$Height)\nAdd these cells and run them. Include text describing each."
+  },
+  {
+    "objectID": "slides/index.html#rendering-the-document",
+    "href": "slides/index.html#rendering-the-document",
+    "title": "Introduction to Quarto",
+    "section": "Rendering the document",
+    "text": "Rendering the document\n\nClick the “Render” button in the RStudio toolbar to render the document\nAlternately, you can render from the command line by running quarto render intro.qmd or quarto preview intro.qmd"
+  },
+  {
+    "objectID": "slides/index.html#inline-code",
+    "href": "slides/index.html#inline-code",
+    "title": "Introduction to Quarto",
+    "section": "Inline code",
+    "text": "Inline code\n\nSo far, our code cells and text have been completely separated\nSometimes, we might want to incorporate the results directly into the text\nFor instance, rather than just having the mean height of 76 feet printed out below the code that calculates it, we could embed it in a sentence that say “The mean height of black cherry trees is 76 feet.”\nWe can do this with an inline code cell, which includes its output inline with the markdown around it\nThe format of an inline code cell is `{r} R code here`, and you can include any single line of R code\nMy preference is to do all calculations in a code cell, store the output in a variable, and then just refer to that in the inline cell"
+  },
+  {
+    "objectID": "slides/index.html#inline-code-example",
+    "href": "slides/index.html#inline-code-example",
+    "title": "Introduction to Quarto",
+    "section": "Inline code: example",
+    "text": "Inline code: example\n\nModify the cell that calculates the mean height to store the result in a variable\n\n```{r}\nmean_height = mean(trees$height)\n```\n\nAdd markdown below it that says\n\nThe mean height of black cherry trees is `{r} mean_height` feet\n\nRender your document again"
+  },
+  {
+    "objectID": "slides/index.html#inline-code-and-dynamic-documents",
+    "href": "slides/index.html#inline-code-and-dynamic-documents",
+    "title": "Introduction to Quarto",
+    "section": "Inline code and dynamic documents",
+    "text": "Inline code and dynamic documents\n\nThe “76” value is now tied to your calculations and data\nIf we were to modify the data used (e.g. by collecting more records), the value 76 would update automatically\nThis is really useful for producing reports or dashboards of summary statistics that need to be updated regularly"
+  },
+  {
+    "objectID": "slides/index.html#including-plots",
+    "href": "slides/index.html#including-plots",
+    "title": "Introduction to Quarto",
+    "section": "Including plots",
+    "text": "Including plots\n\nNumeric results aren’t the only thing we’d like to include in documents\nOften we will want to include plots/figures as well\nLet’s add a code cell that creates a histogram to show the distribution of tree heights in the data\n\n```{r}\nggplot(trees, aes(x=Height)) +\n    geom_histogram()\n```\n\nRun the cell to confirm the plot shows up below it\nRender the document again to see how it shows up in the document"
+  },
+  {
+    "objectID": "slides/index.html#figure-captions",
+    "href": "slides/index.html#figure-captions",
+    "title": "Introduction to Quarto",
+    "section": "Figure captions",
+    "text": "Figure captions\n\nIn academic writing, we often want to have figures captioned\nWe can add a caption to a figure generated from a code cell by adding a special Quarto #| fig-cap: comment to the top of a cell\nComments starting with #| are interpreted as Quarto directives for that cell\n\n```{r}\n#| fig-cap: Histogram of tree heights (feet)\nggplot(trees, aes(x=Height)) +\n    geom_histogram()\n```"
+  },
+  {
+    "objectID": "slides/index.html#alternative-text",
+    "href": "slides/index.html#alternative-text",
+    "title": "Introduction to Quarto",
+    "section": "Alternative text",
+    "text": "Alternative text\n\nCharts are a graphical element, and are not accessible to all individuals\nMany visually-impaired individuals will use a screen reader, software that speaks the text on their screen out loud\nAll charts should either have alternative (alt) text, or be fully described in the text of the report\nFor small charts, you can list the values in the alt text (e.g. the percentages drving alone, etc.)\nFor larger charts, you should describe overall trends/findings\nFor many organizations, ensuring accessibility is a legal requirement under Section 508 of the Americans with Disabilities Act\nYou can add alt text to your figures by adding the Quarto comment #| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80"
+  },
+  {
+    "objectID": "slides/index.html#figure-numbering",
+    "href": "slides/index.html#figure-numbering",
+    "title": "Introduction to Quarto",
+    "section": "Figure numbering",
+    "text": "Figure numbering\n\nWe would also like to number the figures so we can refer to them in the text\nWe don’t want to just write e.g. Figure 1 in the caption, because we might add another figure earlier\nIf we add #| label: fig-height to the top of the cell, this will give the figure the label fig-height\nLabels for figures must start with fig- and should be a word or two, separated by hyphens\nRe-render your document to see that the figure is now numbered Figure 1"
+  },
+  {
+    "objectID": "slides/index.html#referencing-figures-in-text",
+    "href": "slides/index.html#referencing-figures-in-text",
+    "title": "Introduction to Quarto",
+    "section": "Referencing figures in text",
+    "text": "Referencing figures in text\n\nThe whole point of numbering figures is so that we can refer to them in the text\nWe don’t want to just write Figure 1 in the text, because, again, we might later move the figures around\nInstead, we can write @fig-height, and it will be converted to a reference to Figure 1 when the document is rendered (and will even be hyperlinked to the figure)\nIf the figure ever gets moved around, the reference will update\nIf you are writing in a language other than English, adding lang: language_code to your front matter will make the figure text get expanded in the correct language\n\nFor instance, if you put lang: zh-CN for Simplified Chinese, the reference would say 图 1\n\nLanguage codes are described here"
+  },
+  {
+    "objectID": "slides/index.html#tables",
+    "href": "slides/index.html#tables",
+    "title": "Introduction to Quarto",
+    "section": "Tables",
+    "text": "Tables\n\nAnother common element of reports and documents is are tables\nThere are two ways to create a table in Quarto: Markdown tables and tables created by code"
+  },
+  {
+    "objectID": "slides/index.html#markdown-table-syntax",
+    "href": "slides/index.html#markdown-table-syntax",
+    "title": "Introduction to Quarto",
+    "section": "Markdown table syntax",
+    "text": "Markdown table syntax\n\nA table in Markdown looks like this\n\n| Statistic | Value                      |\n|-----------|----------------------------|\n| Mean      | `{r} mean(trees$Height)`   |\n| Median    | `{r} median(trees$Height)` |\n| SD        | `{r} sd(trees$Height)`     |\n\nAdd this to your document (not in a code cell)"
+  },
+  {
+    "objectID": "slides/index.html#markdown-table-syntax-1",
+    "href": "slides/index.html#markdown-table-syntax-1",
+    "title": "Introduction to Quarto",
+    "section": "Markdown table syntax",
+    "text": "Markdown table syntax\n\nI’ve aligned the column breaks for readability, but this is optional\nThis would do the same thing\n\n| Statistic | Value |\n|---|---|\n| Mean | `{r} mean(trees$Height)` |\n| Median | `{r} median(trees$Height)` |\n| SD | `{r} sd(trees$Height)` |"
+  },
+  {
+    "objectID": "slides/index.html#table-captions",
+    "href": "slides/index.html#table-captions",
+    "title": "Introduction to Quarto",
+    "section": "Table captions",
+    "text": "Table captions\n\nTo add a caption to a table, add a blank line below the table, and then a line starting with : followed by the caption\nThe caption will generally render above the table (unless overridden by a template, which we’ll discuss shortly), even though it is written below the table\n\n| Statistic | Value                      |\n|-----------|----------------------------|\n| Mean      | `{r} mean(trees$Height)`   |\n| Median    | `{r} median(trees$Height)` |\n| SD        | `{r} sd(trees$Height)`     |\n\n: Descriptive statistics of tree height (feet)"
+  },
+  {
+    "objectID": "slides/index.html#table-numbering-and-cross-referencing",
+    "href": "slides/index.html#table-numbering-and-cross-referencing",
+    "title": "Introduction to Quarto",
+    "section": "Table numbering and cross-referencing",
+    "text": "Table numbering and cross-referencing\n\nAdding {#tbl-&lt;label&gt;} after the cpation will number the table and allow it to be cross-referenced\n\n| Statistic | Value                      |\n|-----------|----------------------------|\n| Mean      | `{r} mean(trees$Height)`   |\n| Median    | `{r} median(trees$Height)` |\n| SD        | `{r} sd(trees$Height)`     |\n\n: Descriptive statistics of tree height (feet) {#tbl-desc}\n\n@tbl-desc shows..."
+  },
+  {
+    "objectID": "slides/index.html#creating-tables-in-code",
+    "href": "slides/index.html#creating-tables-in-code",
+    "title": "Introduction to Quarto",
+    "section": "Creating tables in code",
+    "text": "Creating tables in code\n\nSometime you won’t want to create your tables manually like this\nYou can create them from code as well\nHow you do this depends on the language, but in R you can use the gt package, or in Python the tabulate package"
+  },
+  {
+    "objectID": "slides/index.html#execute-options",
+    "href": "slides/index.html#execute-options",
+    "title": "Introduction to Quarto",
+    "section": "Execute options",
+    "text": "Execute options\n\nSometimes you want to include all of your code in your rendered document (for instance, for a technical appendix documenting how you performed an analysis)\nOther times you may not (for example, a report, a presentation, or a dashboard)\nYou can control whether code is included with the execute option in your front matter"
+  },
+  {
+    "objectID": "slides/index.html#execute-options-run-code-but-dont-show-it",
+    "href": "slides/index.html#execute-options-run-code-but-dont-show-it",
+    "title": "Introduction to Quarto",
+    "section": "Execute options: run code, but don’t show it",
+    "text": "Execute options: run code, but don’t show it\nAdding\nexecute:\n    echo: false\nto your front matter will mean that code is still executed, and outputs (plots, results, etc.) are still included, but the code itself is not shown\n\nTry adding this to your front matter"
+  },
+  {
+    "objectID": "slides/index.html#execute-options-run-code-but-dont-show-output",
+    "href": "slides/index.html#execute-options-run-code-but-dont-show-output",
+    "title": "Introduction to Quarto",
+    "section": "Execute options: run code, but don’t show output",
+    "text": "Execute options: run code, but don’t show output\nAdding\nexecute:\n    echo: false\n    output: false\nor\nexecute:\n    include: false\nwill disable output from the cells as well\n\nTry this"
+  },
+  {
+    "objectID": "slides/index.html#overriding-execute-options",
+    "href": "slides/index.html#overriding-execute-options",
+    "title": "Introduction to Quarto",
+    "section": "Overriding execute options",
+    "text": "Overriding execute options\n\nOops, that made our histogram go away too\nYou can override the execute options for any code cell by including the option you want to override as a Quarto comment at the top of the cell\nAdd #| output: true to the top of the cell that produces the histogram\n\nIf you used the form with include: false in your front matter, add #| include: true instead\nYou may also need to add #| warning: false to hide the text that tells you how to pick a different bin width for the histogram"
+  },
+  {
+    "objectID": "slides/index.html#not-executing-cells-at-all",
+    "href": "slides/index.html#not-executing-cells-at-all",
+    "title": "Introduction to Quarto",
+    "section": "Not executing cells at all",
+    "text": "Not executing cells at all\n\nSometimes, you might not want to execute code in a cell at all\nFor example, if you were writing documentation, a code cell might show how to install the package you’re documenting, but you don’t want to install it every time you render the document\nSetting #| eval: false will disable execution of a cell\nYou can also set\n\nexecute:\n    eval: false\nto disable execution of every cell in the document\n\nI sometimes disable execution if I want the code displayed to be different from the code actually run (for instance, in a code demo where I add additional code to adjust how the chart displays in the output)"
+  },
+  {
+    "objectID": "slides/index.html#citations",
+    "href": "slides/index.html#citations",
+    "title": "Introduction to Quarto",
+    "section": "Citations",
+    "text": "Citations\n\nIn academic writing we often need to write in-text citations and bibliographies as well\nWe don’t want to have to do this manually:\n\nIt makes keeping in-text citations in sync with the reference list difficult and prone to error\nIt makes changing citation formats difficult\n\nInstead, Quarto integrates the BibTeX citation data storage format and the Citation Style Language citation-formatting software to handle this automatically"
+  },
+  {
+    "objectID": "slides/index.html#the-bibtex-format",
+    "href": "slides/index.html#the-bibtex-format",
+    "title": "Introduction to Quarto",
+    "section": "The BibTeX format",
+    "text": "The BibTeX format\n\nA BibTeX file is a text-based file with the file extension .bib\nIt has one or more entries that look something like this:\n\n@article{bhagat-conway_rush_2023,\n  title = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},\n  author = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},\n  date = {2023-09-13},\n  journaltitle = {PLoS ONE},\n  volume = {18},\n  number = {9},\n  pages = {e0290534},\n  doi = {10.1371/journal.pone.0290534},\n}\n\nbhagat-conway_rush_2023 is the citation key which we’ll use to refer to this paper when referencing it"
+  },
+  {
+    "objectID": "slides/index.html#managing-bibtex-files",
+    "href": "slides/index.html#managing-bibtex-files",
+    "title": "Introduction to Quarto",
+    "section": "Managing BibTeX files",
+    "text": "Managing BibTeX files\n\nI don’t recommend creating BibTeX files by hand (although some people do)\nI use Zotero and the Better BibTeX extension, and have it configured so I can copy BibTeX-formatted references directly from Zotero\nOther citation management software should have similar features\nChatGPT is also pretty good at taking a reference and formatting it as BibTeX if you ask it to"
+  },
+  {
+    "objectID": "slides/index.html#using-bibtex-files-to-add-citations",
+    "href": "slides/index.html#using-bibtex-files-to-add-citations",
+    "title": "Introduction to Quarto",
+    "section": "Using BibTeX files to add citations",
+    "text": "Using BibTeX files to add citations\n\nCreate a new file references.bib in the same folder as your Quarto document\nPaste the BibTeX entry into it:\n\n@article{bhagat-conway_rush_2023,\n  title = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},\n  author = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},\n  date = {2023-09-13},\n  journaltitle = {PLoS ONE},\n  volume = {18},\n  number = {9},\n  pages = {e0290534},\n  doi = {10.1371/journal.pone.0290534},\n}"
+  },
+  {
+    "objectID": "slides/index.html#referencing-you-bibtex-file-from-quarto",
+    "href": "slides/index.html#referencing-you-bibtex-file-from-quarto",
+    "title": "Introduction to Quarto",
+    "section": "Referencing you BibTeX file from Quarto",
+    "text": "Referencing you BibTeX file from Quarto\n\nTo use a bibliography in Quarto, you need to add it to your front matter\n\nbibliography: references.bib\n(if you called your BibTeX file something other than references.bib, put that file name here)"
+  },
+  {
+    "objectID": "slides/index.html#adding-a-citation",
+    "href": "slides/index.html#adding-a-citation",
+    "title": "Introduction to Quarto",
+    "section": "Adding a citation",
+    "text": "Adding a citation\n\nThere are several ways to add a citation\n\n@bhagat-conway_rush_2023: Bhagat-Conway and Zhang (2023)\n[@bhagat-conway_rush_2023]: (Bhagat-Conway and Zhang 2023)\n[-@bhagat-conway_rush_2023]: (2023)\n[@bhagat-conway_rush_2023, p. 12]: (Bhagat-Conway and Zhang 2023, 12)\n@bhagat-conway_rush_2023 [p. 12]: Bhagat-Conway and Zhang (2023, 12)\n[-@bhagat-conway_rush_2023, p. 12]: (2023, 12)\n\nExperiment with a few of these in your document, and re-render"
+  },
+  {
+    "objectID": "slides/index.html#changing-the-citation-style",
+    "href": "slides/index.html#changing-the-citation-style",
+    "title": "Introduction to Quarto",
+    "section": "Changing the citation style",
+    "text": "Changing the citation style\n\nOne of the great things about Quarto is it is really easy to change the citation style, even after your document is written\nQuarto supports any citation style implemented in the Citation Style Language\nThousands of citation styles are available from the Zotero Style Repository, which I recommend even if you don’t use Zotero"
+  },
+  {
+    "objectID": "slides/index.html#downloading-a-citation-style",
+    "href": "slides/index.html#downloading-a-citation-style",
+    "title": "Introduction to Quarto",
+    "section": "Downloading a citation style",
+    "text": "Downloading a citation style\n\nLet’s change our document to use APA style\nGo to the Zotero Style Repository and search for “apa”\nClick on “American Psychological Association 7th edition”\n\nIf you have Zotero it may ask if you want to add the citation style to Zotero; click Cancel and it will download\n\nMove the apa.csl file you just downloaded into the same folder as your Quarto document"
+  },
+  {
+    "objectID": "slides/index.html#using-the-citation-style",
+    "href": "slides/index.html#using-the-citation-style",
+    "title": "Introduction to Quarto",
+    "section": "Using the citation style",
+    "text": "Using the citation style\n\nTo change citation styles, just add to your front matter\n\ncsl: apa.csl\n\nRe-render your document and note that the citation styles have updated\nChanging citation styles usually works quite well\n\nThe main exception is when switching from an author-date to numbered style, some sentence structure may need adjustment\ne.g. “Bhagat-Conway and Zhang (2023) found …” makes sense, while “[7] found…” is more awkward"
+  },
+  {
+    "objectID": "slides/index.html#sharing-your-document-with-others",
+    "href": "slides/index.html#sharing-your-document-with-others",
+    "title": "Introduction to Quarto",
+    "section": "Sharing your document with others",
+    "text": "Sharing your document with others\n\nYou will notice that when you render your document that you have a file intro.html and a folder intro_files\nThe folder contains the other things needed to display your document: images, style sheets, etc.\nIf you wanted to share your document with someone else, you’d need to share both the HTML file and the associated folder\nAnother option is to publish your files to a web server, e.g. Github Pages"
+  },
+  {
+    "objectID": "slides/index.html#creating-self-contained-html-documents",
+    "href": "slides/index.html#creating-self-contained-html-documents",
+    "title": "Introduction to Quarto",
+    "section": "Creating self-contained HTML documents",
+    "text": "Creating self-contained HTML documents\n\nIf you add the following to your front matter, you can create a self-contained HTML document that embeds all images, style sheets, etc. (it will be larger)\n\nformat:\n    html:\n        embed-resources: true"
+  },
+  {
+    "objectID": "slides/index.html#output-formats",
+    "href": "slides/index.html#output-formats",
+    "title": "Introduction to Quarto",
+    "section": "Output formats",
+    "text": "Output formats\n\nSo far, we have only used the default HTML output from Quarto\nQuarto also supports output to PDF or Word\nTo output your file to PDF, just add to your front matter\n\nformat: pdf\n\nRe-render your document to see that the output is now a PDF"
+  },
+  {
+    "objectID": "slides/index.html#installing-latex",
+    "href": "slides/index.html#installing-latex",
+    "title": "Introduction to Quarto",
+    "section": "Installing LaTeX",
+    "text": "Installing LaTeX\n\nQuarto PDF output uses LaTeX by default; if you do not have LaTeX you may get an error\nTo install LaTeX, you can just run quarto install tinytex in a terminal"
+  },
+  {
+    "objectID": "slides/index.html#format-options",
+    "href": "slides/index.html#format-options",
+    "title": "Introduction to Quarto",
+    "section": "Format options",
+    "text": "Format options\n\nThe PDF format has many options to control the look and feel of your document\n\nThe HTML format has a few as well\n\nOptions for formats are created by indenting them below the name of the format\nFor instance, adding this to your front matter will change the margins and fonts\n\nformat:\n    pdf:\n        margin-left: 1in\n        margin-right: 1in\n        margin-top: 1in\n        margin-bottom: 1in\n        mainfont: Times New Roman\n        sansfont: Arial"
+  },
+  {
+    "objectID": "slides/index.html#word-output",
+    "href": "slides/index.html#word-output",
+    "title": "Introduction to Quarto",
+    "section": "Word output",
+    "text": "Word output\n\nYou can output to Microsoft Word format as well by specifying in your front matter\n\nformat: docx\n\nThere are fewer options for Word output, but you can control what it looks like by creating a reference document\nThis is just a template that uses Word styles to specify how different parts of the document should look"
+  },
+  {
+    "objectID": "slides/index.html#custom-word-output",
+    "href": "slides/index.html#custom-word-output",
+    "title": "Introduction to Quarto",
+    "section": "Custom word output",
+    "text": "Custom word output\n\nYou can create a reference document by running\n\nquarto pandoc -o custom-reference-doc.docx --print-default-data-file reference.docx\n\nThis will create a file custom-reference-doc.docx which contains all styles used by Quarto. You can modify the styles in Word to change how Quarto output appears\nNote that you must modify the styles (e.g. using the styles pane), not just the text\nTo use the reference document, just add to your front matter\n\nformat:\n    docx:\n        reference-doc: custom-reference-doc.docx"
+  },
+  {
+    "objectID": "slides/index.html#templates",
+    "href": "slides/index.html#templates",
+    "title": "Introduction to Quarto",
+    "section": "Templates",
+    "text": "Templates\n\nA growing number of journals or conferences have Quarto templates that will automatically put your document in the correct format\nFor instance, I maintain a template for the Transportation Research Board Annual Meeting\nLet’s reformat our document to this format\nIn the console, run quarto add mattwigway/trb-quarto"
+  },
+  {
+    "objectID": "slides/index.html#applying-a-template-to-your-document",
+    "href": "slides/index.html#applying-a-template-to-your-document",
+    "title": "Introduction to Quarto",
+    "section": "Applying a template to your document",
+    "text": "Applying a template to your document\n\nThen change the output format from pdf to trb-pdf, and remove all PDF-specific options\nAlso remove the csl: apa.csl line, as the citation format is handled by the template\nThe format section of your front matter should look like\n\nformat:\n    trb-pdf: default\n\nYour document should now look like a TRB paper"
+  },
+  {
+    "objectID": "slides/index.html#other-types-of-quarto-documents",
+    "href": "slides/index.html#other-types-of-quarto-documents",
+    "title": "Introduction to Quarto",
+    "section": "Other types of Quarto documents",
+    "text": "Other types of Quarto documents\n\nQuarto can be used to create quite a few kinds of other documents\n\nPresentations\nDashboards\nWebsites\nBooks"
+  },
+  {
+    "objectID": "slides/index.html#presentations",
+    "href": "slides/index.html#presentations",
+    "title": "Introduction to Quarto",
+    "section": "Presentations",
+    "text": "Presentations\n\nQuarto provides three output formats for creating presentations\n\nrevealjs\nPowerPoint\nBeamer (LaTeX)\n\nThese slides are a Quarto RevealJS presentation [quarto source]"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-presentation",
+    "href": "slides/index.html#creating-a-presentation",
+    "title": "Introduction to Quarto",
+    "section": "Creating a presentation",
+    "text": "Creating a presentation\n\nIn RStudio, choose File -&gt; New -&gt; Quarto presentation… and choose “create empty document”\nRStudio will default to a RevealJS presentation\nSave the presentation as slides.qmd"
+  },
+  {
+    "objectID": "slides/index.html#quarto-presentation-syntax",
+    "href": "slides/index.html#quarto-presentation-syntax",
+    "title": "Introduction to Quarto",
+    "section": "Quarto presentation syntax",
+    "text": "Quarto presentation syntax\n\nNew slides start any place there is a level-2 heading (i.e. 2 # signs); this is the title of the slide\nYou can create a new slide with no title by adding ---\nIf you use a level-1 heading (i.e. 1 # sign), you will create a title slide, with the title vertically centered\nAll the normal Quarto functionality—Markdown, code, images, etc.—are available"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-presentation-in-quarto",
+    "href": "slides/index.html#creating-a-presentation-in-quarto",
+    "title": "Introduction to Quarto",
+    "section": "Creating a presentation in Quarto",
+    "text": "Creating a presentation in Quarto\n\nLet’s create a presentation about black cherry trees in Quarto\nWe’ll start with a slide that describing the black cherry tree\nThen we’ll have a slide with the histogram we made earlier\nThen we’ll have a slide with a picture of a black cherry tree, and columns with our comments"
+  },
+  {
+    "objectID": "slides/index.html#creating-the-slide-that-describes-the-black-cherry-tree",
+    "href": "slides/index.html#creating-the-slide-that-describes-the-black-cherry-tree",
+    "title": "Introduction to Quarto",
+    "section": "Creating the slide that describes the black cherry tree",
+    "text": "Creating the slide that describes the black cherry tree\n\nCreate a new slide with a level-2 heading\n\n## Black cherry trees\n\nAdd a bulleted list with a few fun facts about black cherry trees, some ideas\n\nBlack cherry is often used for furniture, cabinetry, and floors\nIt has a slightly reddish hue, accentuated by certain finishes\nBlack cherry is common throughout the eastern United States"
+  },
+  {
+    "objectID": "slides/index.html#creating-the-slide-with-the-plot",
+    "href": "slides/index.html#creating-the-slide-with-the-plot",
+    "title": "Introduction to Quarto",
+    "section": "Creating the slide with the plot",
+    "text": "Creating the slide with the plot\n\nInclude the code to create the plot in your document\n\nNote that you will also need to include the code to load the data and libraries\nRevealjs format hides code by default, but you can adjust execute options to change that\nFor instance, when I give presentations about coding, I often want to show the code e.g. these slides"
+  },
+  {
+    "objectID": "slides/index.html#creating-the-slide-with-the-image-of-the-tree",
+    "href": "slides/index.html#creating-the-slide-with-the-image-of-the-tree",
+    "title": "Introduction to Quarto",
+    "section": "Creating the slide with the image of the tree",
+    "text": "Creating the slide with the image of the tree\n\nMake an images folder in the same folder as your Quarto document\nDownload the picture of the black cherry tree from Wikipedia\nSave it as cherry.jpg in the images folder"
+  },
+  {
+    "objectID": "slides/index.html#creating-columns",
+    "href": "slides/index.html#creating-columns",
+    "title": "Introduction to Quarto",
+    "section": "Creating columns",
+    "text": "Creating columns\n\nWe want a two column layout, with the image on the right\nThe syntax for creating columns is a little awkward the first time you use it\nIt looks like this\n\n:::: {.columns}\n::: {.column width=\"60%\"}\n...left column content...\n:::\n::: {.column width=\"40%\"}\n...right column content\n:::\n::::"
+  },
+  {
+    "objectID": "slides/index.html#column-syntax-explained",
+    "href": "slides/index.html#column-syntax-explained",
+    "title": "Introduction to Quarto",
+    "section": "Column syntax explained",
+    "text": "Column syntax explained\n\nThe groups of colons create a block of content (aka a div) that starts with one group and ends with the next group with the same number\n{.columns} styles the outer block as a column container\n{.column width=\"40%\"} styles the inner block as column, and sets its width attribute to 40%"
+  },
+  {
+    "objectID": "slides/index.html#inserting-the-image",
+    "href": "slides/index.html#inserting-the-image",
+    "title": "Introduction to Quarto",
+    "section": "Inserting the image",
+    "text": "Inserting the image\n\nYou use Markdown image syntax to insert an existing image, which looks very similar to link syntax, but starting with an !\nInserting our black cherry image into the right column would look like this\n\n![Black cherry](images/cherry.jpg)\n\nimages/ tells Quarto to look in the images folder for cherry.jpg\n\nYou could just put cherry.jpg in the same folder as the Quarto document, and not specify images/, but I like to keep my images in their own folder since ther are often a lot of them"
+  },
+  {
+    "objectID": "slides/index.html#adding-alt-text",
+    "href": "slides/index.html#adding-alt-text",
+    "title": "Introduction to Quarto",
+    "section": "Adding alt text",
+    "text": "Adding alt text\n\nYou can add alt text to an image inserted this way by adding {fig-alt=\"alt test\"} directly after the image, like this\n\n![Black cherry](images/cherry.jpg){fig-alt=\"Thin green leaves with white starburst flowers.\"}"
+  },
+  {
+    "objectID": "slides/index.html#cross-referencing",
+    "href": "slides/index.html#cross-referencing",
+    "title": "Introduction to Quarto",
+    "section": "Cross-referencing",
+    "text": "Cross-referencing\n\nYou can number the figure so you can add references to it by including the label after a # inside the {}, like this\n\n![Black cherry](images/cherry.jpg){#fig-cherry fig-alt=\"Thin green leaves with white starburst flowers.\"}\n\nLike with charts, it must start with fig-\nYou can then reference it with @fig-cherry\n\nReferencing numbered figures is uncommon in presentations, but this same syntax for adding existing images works in other formats as well"
+  },
+  {
+    "objectID": "slides/index.html#incremental-lists",
+    "href": "slides/index.html#incremental-lists",
+    "title": "Introduction to Quarto",
+    "section": "Incremental lists",
+    "text": "Incremental lists\n\nYou can make all lists incremental (appearing one item at a time) by specifying incremental in the front matter\n\nformat:\n    revealjs:\n        incremental: true\n\nYou can make a single list incremental by wrapping it in an incremental div\n\n::: {.incremental}\n- Incremental\n- List\n:::\n\nMore complicated incremental behavior can be created with fragments and animations"
+  },
+  {
+    "objectID": "slides/index.html#speaker-notes",
+    "href": "slides/index.html#speaker-notes",
+    "title": "Introduction to Quarto",
+    "section": "Speaker notes",
+    "text": "Speaker notes\n\nYou can add speaker notes to any slide by adding a div at the bottom marked as notes:\n\n::: {.notes}\nMake sure to point out leaf colors\n:::"
+  },
+  {
+    "objectID": "slides/index.html#render-your-presentation",
+    "href": "slides/index.html#render-your-presentation",
+    "title": "Introduction to Quarto",
+    "section": "Render your presentation",
+    "text": "Render your presentation\n\nIt should open in your web browser\nPress f to enter full-screen mode\nesc to leave\ns to enter speaker view"
+  },
+  {
+    "objectID": "slides/index.html#customizing-the-style-of-your-presentation",
+    "href": "slides/index.html#customizing-the-style-of-your-presentation",
+    "title": "Introduction to Quarto",
+    "section": "Customizing the style of your presentation",
+    "text": "Customizing the style of your presentation\n\nThe revealjs output format has a number of ways to customize the presentation\nFor instance, I usually use these settings:\n\nformat:\n    revealjs:\n        width: 1600\n        height: 900\n        logo: images/UNC_logo_RGB.png\n        slide-number: true\n\nThis sets the width and height so that text is fairly large when blown up to a projector\nIt adds the UNC logo to each slide (it must be in your images/ folder)\nIt includes slide numbers"
+  },
+  {
+    "objectID": "slides/index.html#revealjs-themes",
+    "href": "slides/index.html#revealjs-themes",
+    "title": "Introduction to Quarto",
+    "section": "RevealJS themes",
+    "text": "RevealJS themes\n\nYou can also change themes, many are available, e.g.\n\nformat:\n    revealjs:\n        theme: dark\n\nIf you want to customize even more, you can code a custom theme (this is how I get Carolina Blue titles and links in this presentation)"
+  },
+  {
+    "objectID": "slides/index.html#converting-to-pdf",
+    "href": "slides/index.html#converting-to-pdf",
+    "title": "Introduction to Quarto",
+    "section": "Converting to PDF",
+    "text": "Converting to PDF\n\nYou can convert revealjs presentations to PDF in two ways\n\nOpening the presentation in Chrome and appending ?print-pdf to the URL, and then printing to a PDF\nUsing the decktape tool"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-powerpoint-presentation",
+    "href": "slides/index.html#creating-a-powerpoint-presentation",
+    "title": "Introduction to Quarto",
+    "section": "Creating a PowerPoint presentation",
+    "text": "Creating a PowerPoint presentation\n\nIf you need a PowerPoint-formatted output, you can set in your front matter\n\nformat: pptx\n\nLike Word documents, you can create custom PowerPoint templates\nYou can also use incremental lists with PowerPoint"
+  },
+  {
+    "objectID": "slides/index.html#presentations-are-just-documents",
+    "href": "slides/index.html#presentations-are-just-documents",
+    "title": "Introduction to Quarto",
+    "section": "Presentations are just documents",
+    "text": "Presentations are just documents\n\nIf you change the format back to html, your document will render just fine\nInstead of being split into slides, everything will be layed out like a document\nUseful for sharing notes/content outside of a presentation\nSpeaker notes show up as well, keep in mind when distributing"
+  },
+  {
+    "objectID": "slides/index.html#using-the-quarto-command-line-interface",
+    "href": "slides/index.html#using-the-quarto-command-line-interface",
+    "title": "Introduction to Quarto",
+    "section": "Using the Quarto command line interface",
+    "text": "Using the Quarto command line interface\n\nSo far, we’ve mostly interacted with Quarto through the RStudio interface\nQuarto has a command line interface as well through the quarto command"
+  },
+  {
+    "objectID": "slides/index.html#what-is-the-command-line",
+    "href": "slides/index.html#what-is-the-command-line",
+    "title": "Introduction to Quarto",
+    "section": "What is the command line?",
+    "text": "What is the command line?\n\nA way of interacting with the computer using a textual rather than graphical interface\nTo use the command line, you run commands. Each command has zero or more options and arguments\nWhen using the command line, you are always in a working directory. By default, commands will apply to files in this directory/folder."
+  },
+  {
+    "objectID": "slides/index.html#what-is-the-command-line-1",
+    "href": "slides/index.html#what-is-the-command-line-1",
+    "title": "Introduction to Quarto",
+    "section": "What is the command line?",
+    "text": "What is the command line?"
+  },
+  {
+    "objectID": "slides/index.html#anatomy-of-a-command",
+    "href": "slides/index.html#anatomy-of-a-command",
+    "title": "Introduction to Quarto",
+    "section": "Anatomy of a command",
+    "text": "Anatomy of a command\nls -l slides\n \n\nls: Command (ls - list files) - always first item\n-l: Option (-l - long format) - always starts with - or --\nslides: Argument (list files in the directory slides)\nPress enter to run a command"
+  },
+  {
+    "objectID": "slides/index.html#specifying-foldersdirectories",
+    "href": "slides/index.html#specifying-foldersdirectories",
+    "title": "Introduction to Quarto",
+    "section": "Specifying folders/directories",
+    "text": "Specifying folders/directories\n\nNested directories are separated with /\nDocuments/odum refers to the odum folder inside the Documents folder\nDocuments/odum/introduction.txt refers to introduction.txt inside odum inside Documents\nAny number of nested directories and files is a path"
+  },
+  {
+    "objectID": "slides/index.html#autocompletion",
+    "href": "slides/index.html#autocompletion",
+    "title": "Introduction to Quarto",
+    "section": "Autocompletion",
+    "text": "Autocompletion\n\nWhen typing a command or a directory, pressing TAB will autocomplete\nIf there is more than one possibility, TAB TAB will show possibilities"
+  },
+  {
+    "objectID": "slides/index.html#escaping-spaces",
+    "href": "slides/index.html#escaping-spaces",
+    "title": "Introduction to Quarto",
+    "section": "Escaping spaces",
+    "text": "Escaping spaces\n\nSpaces separate options and arguments\nIf you want to refer to a file or folder with a space in it, two options\n\nPut a \\ before the space\n\ne.g. Documents/odum\\ quarto\n\nEnclose the entire path in ' or \"\n\ne.g. \"Documents/odum quarto\"\n\n\nAutocompletion will automatically escape any spaces it autocompletes"
+  },
+  {
+    "objectID": "slides/index.html#the-working-directory",
+    "href": "slides/index.html#the-working-directory",
+    "title": "Introduction to Quarto",
+    "section": "The working directory",
+    "text": "The working directory\n\nWhen you use the command line, there is always a working directory\nThis is the folder that the terminal is running “in”\nAny commands you type will refer to files in this folder, unless you specify a complete path"
+  },
+  {
+    "objectID": "slides/index.html#useful-commands",
+    "href": "slides/index.html#useful-commands",
+    "title": "Introduction to Quarto",
+    "section": "Useful commands",
+    "text": "Useful commands\n\ncd directory: Change the working directory\n\ncd ..: Change to the parent directory (e.g. if in Documents/PLAN_390, would change to Documents)\n\nls: list files in the current working directory\nmv oldname newname: rename files or move them between directories\ncp oldname newname: copy file oldname to newname, which may be in a different directory\nmkdir name: Make a folder/directory name in the working directory"
+  },
+  {
+    "objectID": "slides/index.html#useful-quarto-commands",
+    "href": "slides/index.html#useful-quarto-commands",
+    "title": "Introduction to Quarto",
+    "section": "Useful Quarto commands",
+    "text": "Useful Quarto commands\n\nquarto preview &lt;document&gt;: Preview the document, open in a web browser and automatically update as the document is edited\nquarto render &lt;document&gt;: Render the document to its final output format"
+  },
+  {
+    "objectID": "slides/index.html#quarto-projects-working-with-multiple-files",
+    "href": "slides/index.html#quarto-projects-working-with-multiple-files",
+    "title": "Introduction to Quarto",
+    "section": "Quarto projects: working with multiple files",
+    "text": "Quarto projects: working with multiple files\n\nAt some point you will want to integrate multiple Quarto files\nYou can do this using a Quarto project\nQuarto projects\n\ndefine shared front matter across a group of documents\nallow integrating multiple files into a single output\nallow creation of specialized output, e.g. websites or books"
+  },
+  {
+    "objectID": "slides/index.html#structure-of-a-quarto-project",
+    "href": "slides/index.html#structure-of-a-quarto-project",
+    "title": "Introduction to Quarto",
+    "section": "Structure of a Quarto project",
+    "text": "Structure of a Quarto project\n\nThe main file is _quarto.yml which should be in the same folder as your Quarto documents\n\nFor better organization, you can also put Quarto documents in subfolders of the project"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-quarto-project",
+    "href": "slides/index.html#creating-a-quarto-project",
+    "title": "Introduction to Quarto",
+    "section": "Creating a Quarto project",
+    "text": "Creating a Quarto project\n\nCreate a _quarto.yml file in the same folder as your other files\nAnything in this file will be treated as if it were in the front matter of all of the Quarto files in the project\n\nUnless specifically overridden\n\nYou also have project-specific options, such as where to put rendered output\nAdd the following to the _quarto.yml file\n\nproject:\n    output-dir: docs\n\nThis will render project output to the docs/ folder\n\nYou can render to any folder, but rendering to docs/ will let you easily post your rendered documents to Github Pages by just committing your project to Github\nThis is how I post these slides on the web, for example"
+  },
+  {
+    "objectID": "slides/index.html#common-options-for-all-documents",
+    "href": "slides/index.html#common-options-for-all-documents",
+    "title": "Introduction to Quarto",
+    "section": "Common options for all documents",
+    "text": "Common options for all documents\n\nYou can add other code to _quarto.yml that will be treated as if it were in the front matter of all documents in the project\nFor instance, let’s put our bibliography in _quarto.yml\nAdd the following\n\nbibliography: references.bib\nand remove the corresponding lines from your intro.qmd files"
+  },
+  {
+    "objectID": "slides/index.html#rendering-your-quarto-project",
+    "href": "slides/index.html#rendering-your-quarto-project",
+    "title": "Introduction to Quarto",
+    "section": "Rendering your Quarto project",
+    "text": "Rendering your Quarto project\n\nIn the terminal, run quarto render\nNote that both your presentation and your document are in the docs/ folder"
+  },
+  {
+    "objectID": "slides/index.html#special-types-of-quarto-projects-websites",
+    "href": "slides/index.html#special-types-of-quarto-projects-websites",
+    "title": "Introduction to Quarto",
+    "section": "Special types of Quarto projects: websites",
+    "text": "Special types of Quarto projects: websites\n\nA website is just a special type of Quarto project that gets rendered with navigation features, etc.\nTo create a Quarto website, just add a type: website under the project information in _quarto.yml\n\nproject:\n    type: website"
+  },
+  {
+    "objectID": "slides/index.html#configuring-a-quarto-website",
+    "href": "slides/index.html#configuring-a-quarto-website",
+    "title": "Introduction to Quarto",
+    "section": "Configuring a Quarto website",
+    "text": "Configuring a Quarto website\n\nYou can configure your Quarto website with the website: section in _quarto.yml\nFor instance, this will add a navigation bar with links for your intro.qmd and slides.qmd files\n\nwebsite:\n    title: Black Cherry Trees\n    navbar:\n        left:\n            - href: intro.qmd\n              name: Introduction\n            - href: slides.qmd\n              name: Slides"
+  },
+  {
+    "objectID": "slides/index.html#rendering-your-website",
+    "href": "slides/index.html#rendering-your-website",
+    "title": "Introduction to Quarto",
+    "section": "Rendering your website",
+    "text": "Rendering your website\n\nWe want this to display as a website, so remove format: docx from your intro.qmd file and set the format of your slides.qmd file to revealjs\nRun quarto preview to open your website in a web browser"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-default-file",
+    "href": "slides/index.html#creating-a-default-file",
+    "title": "Introduction to Quarto",
+    "section": "Creating a default file",
+    "text": "Creating a default file\n\nGenerally, you would name your main page index.qmd\nThis is what folks will see when they open your website\nIf you don’t, the first page in the navigation bar will be the default\n\nOr, potentially, a 404 Not Found, depending on where you host your website (more on this shortly)"
+  },
+  {
+    "objectID": "slides/index.html#dashboards",
+    "href": "slides/index.html#dashboards",
+    "title": "Introduction to Quarto",
+    "section": "Dashboards",
+    "text": "Dashboards\n\nQuarto can be used to create compelling dashboards showing high-level statistics about a dataset\nFor instance, if you have data you collect and need to publish an overview of it, you could create a dashboard\nBy specifying your dashboard with Quarto code, you can re-render and update it when new data comes in, without manually re-doing analysis or creating reports\nThese can be visually compelling, e.g. this dashboard of requests to the City of Norfolk"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-dashboard",
+    "href": "slides/index.html#creating-a-dashboard",
+    "title": "Introduction to Quarto",
+    "section": "Creating a dashboard",
+    "text": "Creating a dashboard\n\nCreate a new, empty Quarto document in your folder\nCall it dashboard.qmd"
+  },
+  {
+    "objectID": "slides/index.html#dashboard-layout",
+    "href": "slides/index.html#dashboard-layout",
+    "title": "Introduction to Quarto",
+    "section": "Dashboard layout",
+    "text": "Dashboard layout\n\nDashboards use Markdown headers to divide the page into tabs and rows\nLevel 1 headers (1 #) become tabs\nLevel 2 headers (2 ##) become rows\nMultiple plots/tables can be placed side-by-side in one row"
+  },
+  {
+    "objectID": "slides/index.html#the-data-for-our-dashboard",
+    "href": "slides/index.html#the-data-for-our-dashboard",
+    "title": "Introduction to Quarto",
+    "section": "The data for our dashboard",
+    "text": "The data for our dashboard\n\nSo far we’ve been using the built-in trees dataset, but there are only so many analyses we can do with this data\nIn keeping with the theme of trees, we’ll use a CSV file of the Durham Street Tree inventory, which I got from the City of Durham open data portal\nGo ahead and download that CSV file now"
+  },
+  {
+    "objectID": "slides/index.html#setting-up-the-front-matter",
+    "href": "slides/index.html#setting-up-the-front-matter",
+    "title": "Introduction to Quarto",
+    "section": "Setting up the front matter",
+    "text": "Setting up the front matter\n\nPut this in the front matter of your Quarto document\n\n---\ntitle: Durham Street Trees\nformat: dashboard\nexecute:\n    echo: false\n---"
+  },
+  {
+    "objectID": "slides/index.html#loading-data-and-libraries",
+    "href": "slides/index.html#loading-data-and-libraries",
+    "title": "Introduction to Quarto",
+    "section": "Loading data and libraries",
+    "text": "Loading data and libraries\nAdd this code cell just below the front matter, to load the tidyverse library and the data\n```{r}\n#| include: false\nlibrary(tidyverse)\ndata = read_csv(\"durham_trees.csv\")\n```"
+  },
+  {
+    "objectID": "slides/index.html#layout-of-our-dashboard",
+    "href": "slides/index.html#layout-of-our-dashboard",
+    "title": "Introduction to Quarto",
+    "section": "Layout of our dashboard",
+    "text": "Layout of our dashboard\n\nWe will have two rows\nIn the top row, we’ll have a large bar plot of tree height\nIn the bottom row, we’ll have a bar plot of the most common species, and a heatmap of where the trees are located"
+  },
+  {
+    "objectID": "slides/index.html#creating-the-first-row",
+    "href": "slides/index.html#creating-the-first-row",
+    "title": "Introduction to Quarto",
+    "section": "Creating the first row",
+    "text": "Creating the first row\n\nCreate a row for the height chart by creating a level-2 header\nThe text of the header is ignored, but we want to set a height\n\n## {height=\"50%\"}"
+  },
+  {
+    "objectID": "slides/index.html#adding-the-bar-plot",
+    "href": "slides/index.html#adding-the-bar-plot",
+    "title": "Introduction to Quarto",
+    "section": "Adding the bar plot",
+    "text": "Adding the bar plot\n\nAdd the following code cell to create the bar plot by tree height\n\n```{r}\n#| fig-alt: Graph of tree height showing that trees 0-20 feet tall are by far most common\nggplot(data, aes(x=heightft)) +\n    geom_bar()\n```"
+  },
+  {
+    "objectID": "slides/index.html#adding-the-second-row",
+    "href": "slides/index.html#adding-the-second-row",
+    "title": "Introduction to Quarto",
+    "section": "Adding the second row",
+    "text": "Adding the second row\n\nAdd another row below\n\n## {height=\"50%\"}"
+  },
+  {
+    "objectID": "slides/index.html#adding-the-popularity-by-genus",
+    "href": "slides/index.html#adding-the-popularity-by-genus",
+    "title": "Introduction to Quarto",
+    "section": "Adding the popularity by genus",
+    "text": "Adding the popularity by genus\n```{r}\n#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham\ndata %&gt;%\n    count(genus) %&gt;%\n    filter(n &gt; 100) %&gt;%\n    arrange(genus) %&gt;%\n    ggplot(aes(y=genus, x=n)) +\n        geom_col()\n```"
+  },
+  {
+    "objectID": "slides/index.html#adding-the-heatmap",
+    "href": "slides/index.html#adding-the-heatmap",
+    "title": "Introduction to Quarto",
+    "section": "Adding the heatmap",
+    "text": "Adding the heatmap\n```{r}\n#| fig-alt: Plot showing the heaviest density of trees near Downtown Durham\nggplot(data, aes(x=X, y=Y)) +\n    geom_density_2d_filled()\n```"
+  },
+  {
+    "objectID": "slides/index.html#add-the-dashboard-to-your-website-navigation",
+    "href": "slides/index.html#add-the-dashboard-to-your-website-navigation",
+    "title": "Introduction to Quarto",
+    "section": "Add the dashboard to your website navigation",
+    "text": "Add the dashboard to your website navigation\n\nIn your _quarto.yml, add to the navbar: left: section\n\n            - href: dashboard.qmd\n              text: Dashboard\n\nPreview your website again\nYou could also preview just the dashboard by clicking Render in RStudio with dashboard.qmd open"
+  },
+  {
+    "objectID": "slides/index.html#publishing-your-website",
+    "href": "slides/index.html#publishing-your-website",
+    "title": "Introduction to Quarto",
+    "section": "Publishing your website",
+    "text": "Publishing your website\n\nIf your content is public, you can publish it to the web\nThe quarto publish command knows how to publish to a number of services\nThe most common are Quarto Pub and Github Pages\n\nWe’ll discuss Quarto Pub\nGithub Pages is a bit more complicated to set up, as you have to create a Github repository for your content\nPlug: take my Git and Github class next month!"
+  },
+  {
+    "objectID": "slides/index.html#using-quarto-pub",
+    "href": "slides/index.html#using-quarto-pub",
+    "title": "Introduction to Quarto",
+    "section": "Using Quarto Pub",
+    "text": "Using Quarto Pub\n\nJust run quarto publish in the directory where your _quarto.yml file is\nThe first time you use it, you will be prompted to create an account\nYour website will be available at https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;\nYou can also publish a single document with quarto publish &lt;document&gt;.qmd"
+  },
+  {
+    "objectID": "slides/index.html#questionsresources",
+    "href": "slides/index.html#questionsresources",
+    "title": "Introduction to Quarto",
+    "section": "Questions/resources",
+    "text": "Questions/resources\n\nQuarto has excellent documentation\nPart of my job is assisting folks working on computational projects. Feel free to reach out: mwbc@unc.edu\n\n\n\n\n\nhttps://projects.indicatrix.org/odum-quarto"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Quarto - Odum Institute",
+    "section": "",
+    "text": "Slides\nData"
+  }
+]
