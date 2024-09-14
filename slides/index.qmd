@@ -33,6 +33,7 @@ footer: https://projects.indicatrix.org/odum-quarto
 
 - Analysis and writing should be intertwined and mutually referential
 - Content and analysis should be separate from formatting and presentation
+- Analysis results and output should be separate from analysis procedures and writing
 
 ## Similarities to Jupyter Notebooks
 
@@ -185,6 +186,8 @@ _Italic text_
 ```{{r}}
 R code
 ```
+
+- A code cell can contain one or multiple lines of code (or even none)
 
 ## Creating our first Quarto document
 
@@ -521,8 +524,7 @@ format:
 - Quarto also supports output to PDF or Word
 - To output your file to PDF, just add to your front matter
 ```
-format:
-    pdf: default
+format: pdf
 ```
 - Re-render your document to see that the output is now a PDF
 
@@ -553,9 +555,7 @@ format:
 
 - You can output to Microsoft Word format as well by specifying in your front matter
 ```
-format:
-    docx:
-        default
+format: docx
 ```
 - There are fewer options for Word output, but you can control what it looks like by [creating a reference document](https://quarto.org/docs/output-formats/ms-word-templates.html)
 - This is just a template that uses Word styles to specify how different parts of the document should look
@@ -593,6 +593,195 @@ format:
 ```
 - Your document should now look like a TRB paper
 
-## Other types of Quarto documents: presentations
+## Other types of Quarto documents
 
-- 
+- Quarto can be used to create quite a few kinds of other documents
+    - Presentations
+    - Dashboards
+    - Websites
+    - Books
+
+## Presentations
+
+- Quarto provides three output formats for creating presentations
+    - revealjs
+    - PowerPoint
+    - Beamer (LaTeX)
+- These slides are a Quarto RevealJS presentation [[quarto source]](https://github.com/mattwigway/odum-quarto/blob/main/slides/index.qmd)
+
+## Creating a presentation
+
+- In RStudio, choose File -> New -> Quarto presentation... and choose "create empty document"
+- RStudio will default to a RevealJS presentation
+
+## Quarto presentation syntax
+
+- New slides start any place there is a level-2 heading (i.e. 2 `#` signs); this is the title of the slide
+- You can create a new slide with no title by adding `---`
+- If you use a level-1 heading (i.e. 1 `#` sign), you will create a title slide, with the title vertically centered
+- All the normal Quarto functionality---Markdown, code, images, etc.---are available
+
+## Creating a presentation in Quarto
+
+- Let's create a presentation about black cherry trees in Quarto
+- We'll start with a slide that describing the black cherry tree
+- Then we'll have a slide with the histogram we made earlier
+- Then we'll have a slide with a picture of a black cherry tree, and columns with our comments
+
+## Creating the slide that describes the black cherry tree
+
+- Create a new slide with a level-2 heading
+
+```
+## Black cherry trees
+```
+
+- Add a bulleted list with a few fun facts about black cherry trees, some ideas
+    - Black cherry is often used for furniture, cabinetry, and floors
+    - It has a slightly reddish hue, accentuated by certain finishes
+    - Black cherry is common throughout the eastern United States
+
+## Creating the slide with the plot
+
+- Include the code to create the plot in your document
+    - Note that you will also need to include the code to load the data and libraries
+    - Revealjs format hides code by default, but you can adjust execute options to change that
+    - For instance, when I give presentations about coding, I often want to show the code [e.g. these slides](https://projects.indicatrix.org/MyFirstFourStepModel/presentations_and_publications/ite2024/#/running-the-model-trip-distribution)
+
+## Creating the slide with the image of the tree
+
+- Make an `images` folder in the same folder as your Quarto document
+- Download the [picture of the black cherry tree from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/0/0d/Amerikaanse_vogelkers_Prunus_serotina_closeup.jpg)
+- Save it as `cherry.jpg` in the images folder
+
+## Creating columns
+
+- We want a two column layout, with the image on the right
+- The syntax for creating columns is a little awkward the first time you use it
+- It looks like this
+
+```
+:::: {.columns}
+::: {.column width="60%"}
+...left column content...
+:::
+::: {.column width="40%"}
+...right column content
+:::
+::::
+```
+
+## Column syntax explained
+
+- The groups of colons create a block of content (aka a _div_) that starts with one group and ends with the next group with the same number
+- `{.columns}` styles the outer block as a column container
+- `{.column width="40%"}` styles the inner block as column, and sets its width attribute to 40%
+
+## Inserting the image
+
+- You use Markdown image syntax to insert an existing image, which looks very similar to link syntax, but starting with an `!`
+- Inserting our black cherry image into the right column would look like this
+
+```
+![Black cherry](images/cherry.jpg)
+```
+
+- `images/` tells Quarto to look in the images folder for `cherry.jpg`
+    - You could just put `cherry.jpg` in the same folder as the Quarto document, and not specify `images/`, but I like to keep my images in their own folder since ther are often a lot of them
+
+## Adding alt text
+
+- You can add alt text to an image inserted this way by adding `{fig-alt="alt test"}` directly after the image, like this
+
+```
+![Black cherry](images/cherry.jpg){fig-alt="Thin green leaves with white starburst flowers."}
+```
+
+## Cross-referencing
+
+- You can number the figure so you can add references to it by including the label after a `#` inside the `{}`, like this
+
+```
+![Black cherry](images/cherry.jpg){#fig-cherry fig-alt="Thin green leaves with white starburst flowers."}
+```
+
+- Like with charts, it must start with `fig-`
+- You can then reference it with `@fig-cherry`
+    - Referencing numbered figures is uncommon in presentations, but this same syntax for adding existing images works in other formats as well
+
+## Incremental lists
+
+- You can make all lists incremental (appearing one item at a time) by specifying incremental in the front matter
+```
+format:
+    revealjs:
+        incremental: true
+```
+- You can make a single list incremental by wrapping it in an incremental div
+
+```
+::: {.incremental}
+- Incremental
+- List
+:::
+```
+
+- More complicated incremental behavior can be created with [fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments) and [animations](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
+
+## Speaker notes
+
+- You can add speaker notes to any slide by adding a div at the bottom marked as notes:
+
+```
+::: {.notes}
+Make sure to point out leaf colors
+:::
+```
+
+## Render your presentation
+
+- It should open in your web browser
+- Press <kbd>f</kbd> to enter full-screen mode
+- <kbd>esc</kbd> to leave
+- <kbd>s</kbd> to enter speaker view
+
+## Customizing the style of your presentation
+
+- The revealjs output format has a number of ways to customize the presentation
+- For instance, I usually use these settings:
+```
+format:
+    revealjs:
+        width: 1600
+        height: 900
+        logo: images/UNC_logo_RGB.png
+        slide-number: true
+```
+- This sets the width and height so that text is fairly large when blown up to a projector
+- It adds the UNC logo to each slide (it must be in your `images/` folder)
+- It includes slide numbers
+
+## RevealJS themes
+
+- You can also change themes, [many are available](https://quarto.org/docs/presentations/revealjs/themes.html), e.g.
+```
+format:
+    revealjs:
+        theme: dark
+```
+- If you want to customize even more, you can code a custom theme (this is how I get Carolina Blue titles and links in this presentation)
+
+## Converting to PDF
+
+- You can convert revealjs presentations to PDF in two ways
+    - Opening the presentation in Chrome and appending `?print-pdf` to the URL, and then printing to a PDF
+    - Using the [decktape](https://github.com/astefanutti/decktape) tool
+
+## Creating a PowerPoint presentation
+
+- If you need a PowerPoint-formatted output, you can set in your front matter
+```
+format: pptx
+```
+- Like Word documents, you can create [custom PowerPoint templates](https://quarto.org/docs/presentations/powerpoint.html#powerpoint-templates)
+- You can also use incremental lists with PowerPoint
