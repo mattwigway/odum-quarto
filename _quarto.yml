@@ -1,0 +1,9 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - slides/index.qmd
+
+website:
+  title: Introduction to Quarto - Odum Institute
+  

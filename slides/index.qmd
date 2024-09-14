@@ -1,0 +1,598 @@
+---
+title: Introduction to Quarto
+author: Matt Bhagat-Conway
+institute: Odum Institute<br/>University of North Carolina at Chapel Hill
+format:
+    revealjs:
+        width: 1600
+        height: 900
+        theme: [default, unc.scss]
+        logo: UNC_logo_RGB.png
+        slide-number: true
+execute:
+    eval: false
+    include: true
+footer: https://projects.indicatrix.org/odum-quarto
+---
+
+## About me
+
+- Assistant professor of City and Regional Planning
+- Research focus: transportation modeling and simulation
+- PhD/MA in Geography from Arizona State, BA from UC Santa Barbara
+- Three years experience as transportation modeling software developer
+
+## What is Quarto?
+
+- Dynamic document preparation system
+- _Document_ can mean a lot of things: articles, presentations, books, websites, dashboards, etc.
+    - These slides are a Quarto document
+- _Dynamic_ means the document can incorporate code that is executed when the document is _rendered_, so outputs always stay up to date
+
+## The Quarto philosophy
+
+- Analysis and writing should be intertwined and mutually referential
+- Content and analysis should be separate from formatting and presentation
+
+## Similarities to Jupyter Notebooks
+
+- Quarto and Jupyter both allow mixing code, text, and output
+- Both use Markdown for formatting text
+- Jupyter Notebooks are in a custom format that mixes code, text, and output all in the same file
+- Jupyter Notebooks can only be created with notebook-specific software
+- Quarto documents are a human-readable format
+- Outputs are only included when the document is _rendered_ to an output format
+- Quarto documents can be authored with any text editor, and most people write them by hand
+
+## Similarities to R Markdown
+
+- Quarto is more similar to R Markdown
+- Both allow embedding code in Markdown documents
+- Quarto allows more languages: Python, Julia, and Observable in addition to R
+    - And any other language supported by Jupyter, with some configuration
+
+## Basic structure of a Quarto document
+
+- Front matter
+- Markdown text
+- Code cells
+
+## Quarto workflow
+
+- Author a Quarto document using a text editor (RStudio, VSCode, etc.)
+- Run cells interactively as you develop your results
+- Render the document to an output format (e.g. HTML, PDF, Word)
+    - Execute all code
+    - Convert text to formatted text
+    - Insert images
+    - Resolve citations and cross-references
+    - Apply formatting from template
+
+## Front matter
+
+- The _front matter_ of a Quarto document is a section enclosed with `---`
+- In between `---`, there is [YAML](https://en.wikipedia.org/wiki/YAML)-formatted metadata
+- Generally: title, author, and configuration to tell Quarto what kind of document it is, how to format it, and how to run the code in it
+
+## Front matter: example
+
+```{quarto}
+---
+title: Quarto Introduction
+author: Matt Bhagat-Conway
+---
+```
+
+## Markdown
+
+- Text in Quarto documents is formatted using [Markdown](https://daringfireball.net/projects/markdown/)
+- Markdown is a simple format to specify basic text formatting in a plain-text document
+- Markdown is converted to formatted text when you render your Quarto document
+- Anything that is not in front matter or a code cell (discussed shortly) is treated as Markdown
+
+## Markdown syntax: paragraphs
+
+- A paragraph in Markdown is one or more lines of text with no blank lines between them.
+- Multiple lines without line breaks will be treated a single paragraph
+    - A common mistake is to not separate paragraphs with a blank line, and then they run together when rendering
+
+```markdown
+This is one paragraph.
+```
+
+<br/>
+
+```markdown
+This is↵
+also one paragraph.
+```
+
+<br/>
+
+```markdown
+This is↵
+↵
+two paragraphs
+```
+
+## Markdown syntax: section headers
+
+- Section headers start with 1--6 `#` characters (with no spaces before them)
+- These correspond to headings level 1 (largest) to 6 (smallest)
+- Generally, you will want to start with level 2 headings, as the document title will be the level 1 heading
+
+```
+## Level 2
+### Level 3
+#### Level 4
+##### Level 5
+###### Level 6
+```
+
+## Markdown syntax: bold and italic
+
+- **Bold** text is created by surrounding text with `**`
+_ _Italic_ text is created by surrounding text with `_` or `*`
+- These symbols must immediately precede or follow words/punctuation; there cannot be spaces between the symbol and the text
+
+```
+**Bold text**
+
+_Italic text_
+
+*Italic text*
+```
+
+## Markdown syntax: bulleted lists
+
+- Bulleted lists: start each line with `-` or `*`
+
+```
+* This is a
+* bulleted list
+```
+<br/>
+```
+- This is a
+- bulleted list
+```
+
+## Markdown syntax: numbered lists
+
+- Numbered lists have lines that start with a number followed by a period and a space
+- Only the number of the first item matters; all others will be numbered sequentially (this makes editing easier)
+
+```
+1. This
+1. is
+1. a
+1. list
+```
+
+## Markdown syntax: links
+
+- You can add links to other websites; the link text goes in `[]` and the URL follows in `()`
+
+```
+[Odum Institute](https://odum.unc.edu)
+```
+
+## Quarto: code cells
+
+- A Quarto code cell is delimited by three backticks ```` ``` ```` on lines by themselves
+- After the first set of backticks, the language used is enclosed in `{}`
+
+```{{r}}
+R code
+```
+
+## Creating our first Quarto document
+
+- We're going to create a very simple Quarto document that has a title and author, and runs some simple data analysis using datasets built in to R
+- We'll walk through the creation of this document step-by-step
+- There is also an example document `intro.qmd` in the examples file
+
+## Creating a new file
+
+- In RStudio, choose File -> New File -> Quarto Document and fill in the title and author
+- Leave the other options at their defaults
+- Press "Create empty document"
+
+## Creating the front matter
+
+- RStudio already created the front matter for us, but we could edit it now or create it from scratch
+- You need to enclose the title in quotes if it contains a `:` but otherwise you do not need to
+
+```
+---
+title: Tree height analysis
+author: Matt Bhagat-Conway
+---
+```
+
+- Add a blank line after the front matter
+
+## Adding text
+
+- After the front matter, anything that isn't a code cell is treated as Markdown
+- We'll add a sentence describing that this is an analysis of black cherry tree heights, and we'll link to the Wikipedia page on black cherry trees: <https://en.wikipedia.org/wiki/Black_cherry>
+- Headers let us divide up our code into sections
+- We'll add a level-2 header saying that the first part of our analysis file is loading necessary packages
+
+## Adding text: Markdown code
+
+```
+This is an analysis of the heights of [black cherry](https://en.wikipedia.org/wiki/Black_cherry) trees.
+
+## Load libraries
+```
+
+## Adding a code cell
+
+- Next, we'll add a code cell that loads the `tidyverse` library, which we'll use for data analysis and management
+- We need to tag this cell as an R cell by including `{r}`
+
+```{{r}}
+library(tidyverse)
+```
+
+## Running that code cell
+
+- When developing a Quarto document, you will usually want to run the code interactively
+- You can run a single code cell in RStudio by
+    - Clicking the play button in the upper right of the cell
+    - Putting your cursor in the cell and typing <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>-<kbd>shift</kbd>-<kbd>enter</kbd>
+- You can also run all the cells above by clicking the down-arrow button
+- If you get an error about `tidyverse` not being installed, you can just run `install.packages("tidyverse")` in your console
+
+## Adding additional code cells
+
+- Add two more code cells
+- One should load the data with the code `data(trees)`
+- The next should calculate the mean height with the code `mean(trees$Height)`
+- Add these cells and run them. Include text describing each.
+
+## Rendering the document
+
+- Click the "Render" button in the RStudio toolbar to render the document
+- Alternately, you can render from the command line by running `quarto render intro.qmd` or `quarto preview intro.qmd`
+
+## Inline code
+
+- So far, our code cells and text have been completely separated
+- Sometimes, we might want to incorporate the results directly into the text
+- For instance, rather than just having the mean height of 76 feet printed out below the code that calculates it, we could embed it in a sentence that say "The mean height of black cherry trees is 76 feet."
+- We can do this with an inline code cell, which includes its output _inline_ with the markdown around it
+- The format of an inline code cell is \``{{r}} R code here`\`, and you can include any single line of R code
+- My preference is to do all calculations in a code cell, store the output in a variable, and then just refer to that in the inline cell
+
+## Inline code: example
+
+- Modify the cell that calculates the mean height to store the result in a variable
+
+```{{r}}
+mean_height = mean(height)
+```
+
+- Add markdown below it that says
+
+```
+The mean height of black cherry trees is `{r} mean_height` feet
+```
+
+- Render your document again
+
+## Inline code and dynamic documents
+
+- The "76" value is now tied to your calculations and data
+- If we were to modify the data used (e.g. by collecting more records), the value 76 would update automatically
+- This is really useful for producing reports or dashboards of summary statistics that need to be updated regularly
+
+## Including plots
+
+- Numeric results aren't the only thing we'd like to include in documents
+- Often we will want to include plots/figures as well
+- Let's add a code cell that creates a histogram to show the distribution of tree heights in the data
+
+```{{r}}
+ggplot(trees, aes(x=Height)) +
+    geom_histogram()
+```
+
+- Run the cell to confirm the plot shows up below it
+- Render the document again to see how it shows up in the document
+
+## Figure captions
+
+- In academic writing, we often want to have figures captioned
+- We can add a caption to a figure generated from a code cell by adding a special Quarto `#| fig-cap: ` comment to the top of a cell
+- Comments starting with `#| ` are interpreted as Quarto directives for that cell
+
+```{{r}}
+#| fig-cap: Histogram of tree heights (feet)
+ggplot(trees, aes(x=Height)) +
+    geom_histogram()
+```
+
+## Alternative text
+
+- Charts are a graphical element, and are not accessible to all individuals
+- Many visually-impaired individuals will use a _screen reader_, software that speaks the text on their screen out loud
+- All charts should either have alternative (alt) text, or be fully described in the text of the report
+- For small charts, you can list the values in the alt text (e.g. the percentages drving alone, etc.)
+- For larger charts, you should describe overall trends/findings
+- For many organizations, ensuring accessibility is a legal requirement under Section 508 of the Americans with Disabilities Act
+- You can add alt text to your figures by adding the Quarto comment `#| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80`
+
+## Figure numbering
+
+- We would also like to number the figures so we can refer to them in the text
+- We don't want to just write e.g. Figure 1 in the caption, because we might add another figure earlier
+- If we add `#| label: fig-height` to the top of the cell, this will give the figure the _label_ `fig-height`
+- Labels for figures must start with `fig-` and should be a word or two, separated by hyphens
+- Re-render your document to see that the figure is now numbered Figure 1
+
+## Referencing figures in text
+
+- The whole point of numbering figures is so that we can refer to them in the text
+- We don't want to just write Figure 1 in the text, because, again, we might later move the figures around
+- Instead, we can write `@fig-height`, and it will be converted to a reference to Figure 1 when the document is rendered (and will even be hyperlinked to the figure)
+- If the figure ever gets moved around, the reference will update
+- If you are writing in a language other than English, adding `lang: language_code` to your front matter will make the figure text get expanded in the correct language
+    - For instance, if you put `lang: zh-CN` for Simplified Chinese, the reference would say 图 1
+- [Language codes are described here](https://www.w3.org/International/questions/qa-choosing-language-tags)
+
+## Execute options
+
+- Sometimes you want to include all of your code in your rendered document (for instance, for a technical appendix documenting how you performed an analysis)
+- Other times you may not (for example, a report, a presentation, or a dashboard)
+- You can control whether code is included with the `execute` option in your front matter
+
+## Execute options: run code, but don't show it
+
+Adding 
+```
+execute:
+    echo: false
+```
+to your front matter will mean that code is still executed, and outputs (plots, results, etc.) are still included, but the code itself is not shown
+
+- Try adding this to your front matter
+
+## Execute options: run code, but don't show output
+
+Adding
+```
+execute:
+    echo: false
+    output: false
+```
+
+or
+
+```
+execute:
+    include: false
+```
+
+will disable output from the cells as well
+
+- Try this
+
+## Overriding execute options
+
+- Oops, that made our histogram go away too
+- You can override the execute options for any code cell by including the option you want to override as a Quarto comment at the top of the cell
+- Add `#| output: true` to the top of the cell that produces the histogram
+    - If you used the form with `include: false` in your front matter, add `#| include: true` instead
+    - You may also need to add `#| warning: false` to hide the text that tells you how to pick a different bin width for the histogram
+
+## Not executing cells at all
+
+- Sometimes, you might not want to execute code in a cell at all
+- For example, if you were writing documentation, a code cell might show how to install the package you're documenting, but you don't want to install it every time you render the document
+- Setting `#| eval: false` will disable execution of a cell
+- You can also set
+```
+execute:
+    eval: false
+```
+to disable execution of every cell in the document
+- I sometimes disable execution if I want the code displayed to be different from the code actually run (for instance, in a [code demo where I add additional code to adjust how the chart displays in the output](https://github.com/mattwigway/MyFirstFourStepModel/blob/90186cb02aba5900a75e81856d946d1b36fd4133/presentations_and_publications/ite2024/index.qmd#L172))
+
+## Citations
+
+- In academic writing we often need to write in-text citations and bibliographies as well
+- We don't want to have to do this manually:
+    - It makes keeping in-text citations in sync with the reference list difficult and prone to error
+    - It makes changing citation formats difficult
+- Instead, Quarto integrates the [BibTeX](https://www.bibtex.org/) citation data storage format and the [Citation Style Language](https://citationstyles.org/) citation-formatting software to handle this automatically
+
+## The BibTeX format
+
+- A BibTeX file is a text-based file with the file extension `.bib`
+- It has one or more entries that look something like this:
+
+```bibtex
+@article{bhagat-conway_rush_2023,
+  title = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},
+  author = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},
+  date = {2023-09-13},
+  journaltitle = {PLoS ONE},
+  volume = {18},
+  number = {9},
+  pages = {e0290534},
+  doi = {10.1371/journal.pone.0290534},
+}
+```
+
+- `bhagat-conway_rush_2023` is the _citation key_ which we'll use to refer to this paper when referencing it
+
+## Managing BibTeX files
+
+- I don't recommend creating BibTeX files by hand (although some people do)
+- I use [Zotero](https://www.zotero.org/) and the [Better BibTeX extension](https://retorque.re/zotero-better-bibtex/), and have it configured so I can copy BibTeX-formatted references directly from Zotero
+- Other citation management software should have similar features
+- ChatGPT is also pretty good at taking a reference and formatting it as BibTeX if you ask it to
+
+## Using BibTeX files to add citations
+
+- Create a new file `references.bib` in the same folder as your Quarto document
+- Paste the BibTeX entry into it:
+
+```bibtex
+@article{bhagat-conway_rush_2023,
+  title = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},
+  author = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},
+  date = {2023-09-13},
+  journaltitle = {PLoS ONE},
+  volume = {18},
+  number = {9},
+  pages = {e0290534},
+  doi = {10.1371/journal.pone.0290534},
+}
+```
+
+## Referencing you BibTeX file from Quarto
+
+- To use a bibliography in Quarto, you need to add it to your front matter
+
+```
+bibliography: references.bib
+```
+
+(if you called your BibTeX file something other than references.bib, put that file name here)
+
+## Adding a citation
+
+- There are several ways to add a citation
+    - `@bhagat-conway_rush_2023`: Bhagat-Conway and Zhang (2023)
+    - `[@bhagat-conway_rush_2023]`: (Bhagat-Conway and Zhang 2023)
+    - `[-@bhagat-conway_rush_2023]`: (2023)
+    - `[@bhagat-conway_rush_2023, p. 12]`: (Bhagat-Conway and Zhang 2023, 12)
+    - `@bhagat-conway_rush_2023 [p. 12]`: Bhagat-Conway and Zhang (2023, 12)
+    - `[-@bhagat-conway_rush_2023, p. 12]`: (2023, 12)
+- Experiment with a few of these in your document, and re-render
+
+## Changing the citation style
+
+- One of the great things about Quarto is it is really easy to change the citation style, even after your document is written
+- Quarto supports any citation style implemented in the [Citation Style Language](https://citationstyles.org)
+- Thousands of citation styles are available from the [Zotero Style Repository](https://www.zotero.org/styles), which I recommend even if you don't use Zotero
+
+## Downloading a citation style
+
+- Let's change our document to use APA style
+- Go to the [Zotero Style Repository](https://www.zotero.org/styles) and search for "apa"
+- Click on "American Psychological Association 7th edition"
+    - If you have Zotero it may ask if you want to add the citation style to Zotero; click Cancel and it will download
+- Move the `apa.csl` file you just downloaded into the same folder as your Quarto document
+
+## Using the citation style
+
+- To change citation styles, just add to your front matter
+```
+csl: apa.csl
+```
+- Re-render your document and note that the citation styles have updated
+- Changing citation styles usually works quite well
+    - The main exception is when switching from an author-date to numbered style, some sentence structure may need adjustment
+    - e.g. "Bhagat-Conway and Zhang (2023) found ..." makes sense, while "[7] found..." is more awkward
+
+## Sharing your document with others
+
+- You will notice that when you render your document that you have a file `intro.html` and a folder `intro_files`
+- The folder contains the other things needed to display your document: images, style sheets, etc.
+- If you wanted to share your document with someone else, you'd need to share both the HTML file and the associated folder
+- Another option is to publish your files to a web server, e.g. Github Pages
+
+## Creating self-contained HTML documents
+
+- If you add the following to your front matter, you can create a _self-contained_ HTML document that embeds all images, style sheets, etc. (it will be larger)
+```
+format:
+    html:
+        embed-resources: true
+```
+
+## Output formats
+
+- So far, we have only used the default HTML output from Quarto
+- Quarto also supports output to PDF or Word
+- To output your file to PDF, just add to your front matter
+```
+format:
+    pdf: default
+```
+- Re-render your document to see that the output is now a PDF
+
+## Installing LaTeX
+
+- Quarto PDF output uses LaTeX by default; if you do not have LaTeX you may get an error
+- To install LaTeX, you can just run `quarto install tinytex` in a terminal
+
+## Format options
+
+- The PDF format has [many options](https://quarto.org/docs/reference/formats/pdf.html) to control the look and feel of your document
+    - The HTML format [has a few as well](https://quarto.org/docs/output-formats/html-basics.html)
+- Options for formats are created by indenting them below the name of the format
+- For instance, adding this to your front matter will change the margins and fonts
+
+```
+format:
+    pdf:
+        margin-left: 1in
+        margin-right: 1in
+        margin-top: 1in
+        margin-bottom: 1in
+        mainfont: Times New Roman
+        sansfont: Arial
+```
+
+## Word output
+
+- You can output to Microsoft Word format as well by specifying in your front matter
+```
+format:
+    docx:
+        default
+```
+- There are fewer options for Word output, but you can control what it looks like by [creating a reference document](https://quarto.org/docs/output-formats/ms-word-templates.html)
+- This is just a template that uses Word styles to specify how different parts of the document should look
+
+## Custom word output
+
+- You can create a reference document by running
+```
+quarto pandoc -o custom-reference-doc.docx --print-default-data-file reference.docx
+```
+- This will create a file `custom-reference-doc.docx` which contains all styles used by Quarto. You can modify the styles in Word to change how Quarto output appears
+- Note that you must modify the _styles_ (e.g. using the styles pane), not just the text
+- To use the reference document, just add to your front matter
+```
+format:
+    docx:
+        reference-doc: custom-reference-doc.docx
+```
+
+## Templates
+
+- A growing number of journals or conferences have [Quarto templates](https://quarto.org/docs/journals/templates.html) that will automatically put your document in the correct format
+- For instance, I maintain a [template for the Transportation Research Board Annual Meeting](https://github.com/mattwigway/trb-quarto)
+- Let's reformat our document to this format
+- In the console, run `quarto add mattwigway/trb-quarto`
+
+## Applying a template to your document
+
+- Then change the output format from `pdf` to `trb-pdf`, and remove all PDF-specific options
+- Also remove the `csl: apa.csl` line, as the citation format is handled by the template 
+- The format section of your front matter should look like
+```
+format:
+    trb-pdf: default
+```
+- Your document should now look like a TRB paper
+
+## Other types of Quarto documents: presentations
+
+- 
