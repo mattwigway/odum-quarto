@@ -537,7 +537,8 @@ author: Matt Bhagat-Conway
 <section id="markdown-syntax-bold-and-italic" class="slide level2">
 <h2>Markdown syntax: bold and italic</h2>
 <ul>
-<li><strong>Bold</strong> text is created by surrounding text with <code>**</code> _ <em>Italic</em> text is created by surrounding text with <code>_</code> or <code>*</code></li>
+<li><strong>Bold</strong> text is created by surrounding text with <code>**</code></li>
+<li><em>Italic</em> text is created by surrounding text with <code>_</code> or <code>*</code></li>
 <li>These symbols must immediately precede or follow words/punctuation; there cannot be spaces between the symbol and the text</li>
 </ul>
 <pre><code>**Bold text**
@@ -753,11 +754,12 @@ author: Matt Bhagat-Conway
 <li>Charts are a graphical element, and are not accessible to all individuals</li>
 <li>Many visually-impaired individuals will use a <em>screen reader</em>, software that speaks the text on their screen out loud</li>
 <li>All charts should either have alternative (alt) text, or be fully described in the text of the report</li>
-<li>For small charts, you can list the values in the alt text (e.g.&nbsp;the percentages drving alone, etc.)</li>
+<li>For small charts, you can list the values in the alt text</li>
 <li>For larger charts, you should describe overall trends/findings</li>
 <li>For many organizations, ensuring accessibility is a legal requirement under Section 508 of the Americans with Disabilities Act</li>
-<li>You can add alt text to your figures by adding the Quarto comment <code>#| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80</code></li>
+<li>You can add alt text to your figures by adding the Quarto comment</li>
 </ul>
+<pre><code>#| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80</code></pre>
 </section>
 <section id="figure-numbering" class="slide level2">
 <h2>Figure numbering</h2>
@@ -795,11 +797,11 @@ author: Matt Bhagat-Conway
 <ul>
 <li>A table in Markdown looks like this</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value                      |</span>
-<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>|-----------|----------------------------|</span>
-<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>| Mean      | <span class="in">`{r} mean(trees$Height)`</span>   |</span>
-<span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a>| Median    | <span class="in">`{r} median(trees$Height)`</span> |</span>
-<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a>| SD        | <span class="in">`{r} sd(trees$Height)`</span>     |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value                      |</span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>|-----------|----------------------------|</span>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>| Mean      | <span class="in">`{r} mean(trees$Height)`</span>   |</span>
+<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>| Median    | <span class="in">`{r} median(trees$Height)`</span> |</span>
+<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>| SD        | <span class="in">`{r} sd(trees$Height)`</span>     |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Add this to your document (not in a code cell)</li>
 </ul>
@@ -810,11 +812,11 @@ author: Matt Bhagat-Conway
 <li>I’ve aligned the column breaks for readability, but this is optional</li>
 <li>This would do the same thing</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value |</span>
-<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>|---|---|</span>
-<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>| Mean | <span class="in">`{r} mean(trees$Height)`</span> |</span>
-<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>| Median | <span class="in">`{r} median(trees$Height)`</span> |</span>
-<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>| SD | <span class="in">`{r} sd(trees$Height)`</span> |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value |</span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>|---|---|</span>
+<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a>| Mean | <span class="in">`{r} mean(trees$Height)`</span> |</span>
+<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>| Median | <span class="in">`{r} median(trees$Height)`</span> |</span>
+<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>| SD | <span class="in">`{r} sd(trees$Height)`</span> |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="table-captions" class="slide level2">
 <h2>Table captions</h2>
@@ -822,28 +824,28 @@ author: Matt Bhagat-Conway
 <li>To add a caption to a table, add a blank line <em>below</em> the table, and then a line starting with <code>:</code> followed by the caption</li>
 <li>The caption will generally render above the table (unless overridden by a template, which we’ll discuss shortly), even though it is written below the table</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value                      |</span>
-<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>|-----------|----------------------------|</span>
-<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a>| Mean      | <span class="in">`{r} mean(trees$Height)`</span>   |</span>
-<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>| Median    | <span class="in">`{r} median(trees$Height)`</span> |</span>
-<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>| SD        | <span class="in">`{r} sd(trees$Height)`</span>     |</span>
-<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a aria-hidden="true" tabindex="-1"></a>: Descriptive statistics of tree height (feet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="table-numbering-and-cross-referencing" class="slide level2">
-<h2>Table numbering and cross-referencing</h2>
-<ul>
-<li>Adding <code>{#tbl-&lt;label&gt;}</code> after the cpation will number the table and allow it to be cross-referenced</li>
-</ul>
 <div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value                      |</span>
 <span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>|-----------|----------------------------|</span>
 <span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>| Mean      | <span class="in">`{r} mean(trees$Height)`</span>   |</span>
 <span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>| Median    | <span class="in">`{r} median(trees$Height)`</span> |</span>
 <span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>| SD        | <span class="in">`{r} sd(trees$Height)`</span>     |</span>
 <span id="cb22-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a aria-hidden="true" tabindex="-1"></a>: Descriptive statistics of tree height (feet) {#tbl-desc}</span>
-<span id="cb22-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a aria-hidden="true" tabindex="-1"></a>@tbl-desc shows...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-7"><a aria-hidden="true" tabindex="-1"></a>: Descriptive statistics of tree height (feet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="table-numbering-and-cross-referencing" class="slide level2">
+<h2>Table numbering and cross-referencing</h2>
+<ul>
+<li>Adding <code>{#tbl-&lt;label&gt;}</code> after the cpation will number the table and allow it to be cross-referenced</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>| Statistic | Value                      |</span>
+<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>|-----------|----------------------------|</span>
+<span id="cb23-3"><a aria-hidden="true" tabindex="-1"></a>| Mean      | <span class="in">`{r} mean(trees$Height)`</span>   |</span>
+<span id="cb23-4"><a aria-hidden="true" tabindex="-1"></a>| Median    | <span class="in">`{r} median(trees$Height)`</span> |</span>
+<span id="cb23-5"><a aria-hidden="true" tabindex="-1"></a>| SD        | <span class="in">`{r} sd(trees$Height)`</span>     |</span>
+<span id="cb23-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a aria-hidden="true" tabindex="-1"></a>: Descriptive statistics of tree height (feet) {#tbl-desc}</span>
+<span id="cb23-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a aria-hidden="true" tabindex="-1"></a>@tbl-desc shows...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="creating-tables-in-code" class="slide level2">
 <h2>Creating tables in code</h2>
@@ -864,8 +866,8 @@ author: Matt Bhagat-Conway
 <section id="execute-options-run-code-but-dont-show-it" class="slide level2">
 <h2>Execute options: run code, but don’t show it</h2>
 <p>Adding</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>to your front matter will mean that code is still executed, and outputs (plots, results, etc.) are still included, but the code itself is not shown</p>
 <ul>
 <li>Try adding this to your front matter</li>
@@ -874,12 +876,12 @@ author: Matt Bhagat-Conway
 <section id="execute-options-run-code-but-dont-show-output" class="slide level2">
 <h2>Execute options: run code, but don’t show output</h2>
 <p>Adding</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>will disable output from the cells as well</p>
 <ul>
 <li>Try this</li>
@@ -905,8 +907,8 @@ author: Matt Bhagat-Conway
 <li>Setting <code>#| eval: false</code> will disable execution of a cell</li>
 <li>You can also set</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>to disable execution of every cell in the document</p>
 <ul>
 <li>I sometimes disable execution if I want the code displayed to be different from the code actually run (for instance, in a <a href="https://github.com/mattwigway/MyFirstFourStepModel/blob/90186cb02aba5900a75e81856d946d1b36fd4133/presentations_and_publications/ite2024/index.qmd#L172">code demo where I add additional code to adjust how the chart displays in the output</a>)</li>
@@ -930,16 +932,16 @@ author: Matt Bhagat-Conway
 <li>A BibTeX file is a text-based file with the file extension <code>.bib</code></li>
 <li>It has one or more entries that look something like this:</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">bhagat</span>-<span class="ot">conway_rush_2023</span>,</span>
-<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},</span>
-<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},</span>
-<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">date</span> = {2023-09-13},</span>
-<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">journaltitle</span> = {PLoS ONE},</span>
-<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> = {18},</span>
-<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span> = {9},</span>
-<span id="cb27-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> = {e0290534},</span>
-<span id="cb27-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> = {10.1371/journal.pone.0290534},</span>
-<span id="cb27-10"><a aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">bhagat</span>-<span class="ot">conway_rush_2023</span>,</span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},</span>
+<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},</span>
+<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">date</span> = {2023-09-13},</span>
+<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">journaltitle</span> = {PLoS ONE},</span>
+<span id="cb28-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> = {18},</span>
+<span id="cb28-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span> = {9},</span>
+<span id="cb28-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> = {e0290534},</span>
+<span id="cb28-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> = {10.1371/journal.pone.0290534},</span>
+<span id="cb28-10"><a aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>bhagat-conway_rush_2023</code> is the <em>citation key</em> which we’ll use to refer to this paper when referencing it</li>
 </ul>
@@ -959,23 +961,23 @@ author: Matt Bhagat-Conway
 <li>Create a new file <code>references.bib</code> in the same folder as your Quarto document</li>
 <li>Paste the BibTeX entry into it:</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">bhagat</span>-<span class="ot">conway_rush_2023</span>,</span>
-<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},</span>
-<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},</span>
-<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">date</span> = {2023-09-13},</span>
-<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">journaltitle</span> = {PLoS ONE},</span>
-<span id="cb28-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> = {18},</span>
-<span id="cb28-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span> = {9},</span>
-<span id="cb28-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> = {e0290534},</span>
-<span id="cb28-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> = {10.1371/journal.pone.0290534},</span>
-<span id="cb28-10"><a aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">bhagat</span>-<span class="ot">conway_rush_2023</span>,</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {Rush Hour-and-a-Half: {{Traffic}} Is Spreading out Post-Lockdown},</span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Bhagat-Conway, Matthew Wigginton and Zhang, Sam},</span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">date</span> = {2023-09-13},</span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">journaltitle</span> = {PLoS ONE},</span>
+<span id="cb29-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> = {18},</span>
+<span id="cb29-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span> = {9},</span>
+<span id="cb29-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> = {e0290534},</span>
+<span id="cb29-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> = {10.1371/journal.pone.0290534},</span>
+<span id="cb29-10"><a aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="referencing-you-bibtex-file-from-quarto" class="slide level2">
 <h2>Referencing you BibTeX file from Quarto</h2>
 <ul>
 <li>To use a bibliography in Quarto, you need to add it to your front matter</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(if you called your BibTeX file something other than references.bib, put that file name here)</p>
 </section>
 <section id="adding-a-citation" class="slide level2">
@@ -1018,7 +1020,7 @@ author: Matt Bhagat-Conway
 <ul>
 <li>To change citation styles, just add to your front matter</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Re-render your document and note that the citation styles have updated</li>
 <li>Changing citation styles usually works quite well
@@ -1042,9 +1044,9 @@ author: Matt Bhagat-Conway
 <ul>
 <li>If you add the following to your front matter, you can create a <em>self-contained</em> HTML document that embeds all images, style sheets, etc. (it will be larger)</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="output-formats" class="slide level2">
 <h2>Output formats</h2>
@@ -1053,7 +1055,7 @@ author: Matt Bhagat-Conway
 <li>Quarto also supports output to PDF or Word</li>
 <li>To output your file to PDF, just add to your front matter</li>
 </ul>
-<div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pdf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pdf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Re-render your document to see that the output is now a PDF</li>
 </ul>
@@ -1075,21 +1077,21 @@ author: Matt Bhagat-Conway
 <li>Options for formats are created by indenting them below the name of the format</li>
 <li>For instance, adding this to your front matter will change the margins and fonts</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">pdf</span><span class="kw">:</span></span>
-<span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-left</span><span class="kw">:</span><span class="at"> 1in</span></span>
-<span id="cb33-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-right</span><span class="kw">:</span><span class="at"> 1in</span></span>
-<span id="cb33-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-top</span><span class="kw">:</span><span class="at"> 1in</span></span>
-<span id="cb33-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-bottom</span><span class="kw">:</span><span class="at"> 1in</span></span>
-<span id="cb33-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">mainfont</span><span class="kw">:</span><span class="at"> Times New Roman</span></span>
-<span id="cb33-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">sansfont</span><span class="kw">:</span><span class="at"> Arial</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-left</span><span class="kw">:</span><span class="at"> 1in</span></span>
+<span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-right</span><span class="kw">:</span><span class="at"> 1in</span></span>
+<span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-top</span><span class="kw">:</span><span class="at"> 1in</span></span>
+<span id="cb34-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">margin-bottom</span><span class="kw">:</span><span class="at"> 1in</span></span>
+<span id="cb34-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">mainfont</span><span class="kw">:</span><span class="at"> Times New Roman</span></span>
+<span id="cb34-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">sansfont</span><span class="kw">:</span><span class="at"> Arial</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="word-output" class="slide level2">
 <h2>Word output</h2>
 <ul>
 <li>You can output to Microsoft Word format as well by specifying in your front matter</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>There are fewer options for Word output, but you can control what it looks like by <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">creating a reference document</a></li>
 <li>This is just a template that uses Word styles to specify how different parts of the document should look</li>
@@ -1100,15 +1102,15 @@ author: Matt Bhagat-Conway
 <ul>
 <li>You can create a reference document by running</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> pandoc <span class="at">-o</span> custom-reference-doc.docx <span class="at">--print-default-data-file</span> reference.docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> pandoc <span class="at">-o</span> custom-reference-doc.docx <span class="at">--print-default-data-file</span> reference.docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>This will create a file <code>custom-reference-doc.docx</code> which contains all styles used by Quarto. You can modify the styles in Word to change how Quarto output appears</li>
 <li>Note that you must modify the <em>styles</em> (e.g.&nbsp;using the styles pane), not just the text</li>
 <li>To use the reference document, just add to your front matter</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">docx</span><span class="kw">:</span></span>
-<span id="cb36-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> custom-reference-doc.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb37-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> custom-reference-doc.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="templates" class="slide level2">
 <h2>Templates</h2>
@@ -1126,8 +1128,8 @@ author: Matt Bhagat-Conway
 <li>Also remove the <code>csl: apa.csl</code> line, as the citation format is handled by the template</li>
 <li>The format section of your front matter should look like</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">trb-pdf</span><span class="kw">:</span><span class="at"> default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">trb-pdf</span><span class="kw">:</span><span class="at"> default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Your document should now look like a TRB paper</li>
 </ul>
@@ -1280,9 +1282,9 @@ author: Matt Bhagat-Conway
 <ul>
 <li>You can make all lists incremental (appearing one item at a time) by specifying incremental in the front matter</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb43-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb43-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>You can make a single list incremental by wrapping it in an incremental div</li>
 </ul>
@@ -1318,12 +1320,12 @@ Make sure to point out leaf colors
 <li>The revealjs output format has a number of ways to customize the presentation</li>
 <li>For instance, I usually use these settings:</li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb46-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb46-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="dv">1600</span></span>
-<span id="cb46-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">height</span><span class="kw">:</span><span class="at"> </span><span class="dv">900</span></span>
-<span id="cb46-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> images/UNC_logo_RGB.png</span></span>
-<span id="cb46-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="dv">1600</span></span>
+<span id="cb47-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">height</span><span class="kw">:</span><span class="at"> </span><span class="dv">900</span></span>
+<span id="cb47-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> images/UNC_logo_RGB.png</span></span>
+<span id="cb47-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>This sets the width and height so that text is fairly large when blown up to a projector</li>
 <li>It adds the UNC logo to each slide (it must be in your <code>images/</code> folder)</li>
@@ -1335,9 +1337,9 @@ Make sure to point out leaf colors
 <ul>
 <li>You can also change themes, <a href="https://quarto.org/docs/presentations/revealjs/themes.html">many are available</a>, e.g.</li>
 </ul>
-<div class="sourceCode" id="cb47"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> dark</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb48-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb48-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> dark</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>If you want to customize even more, you can code a custom theme (this is how I get Carolina Blue titles and links in this presentation)</li>
 </ul>
@@ -1357,7 +1359,7 @@ Make sure to point out leaf colors
 <ul>
 <li>If you need a PowerPoint-formatted output, you can set in your front matter</li>
 </ul>
-<div class="sourceCode" id="cb48"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pptx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pptx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Like Word documents, you can create <a href="https://quarto.org/docs/presentations/powerpoint.html#powerpoint-templates">custom PowerPoint templates</a></li>
 <li>You can also use incremental lists with PowerPoint</li>
@@ -1463,6 +1465,7 @@ Make sure to point out leaf colors
 <ul>
 <li><code>quarto preview &lt;document&gt;</code>: Preview the document, open in a web browser and automatically update as the document is edited</li>
 <li><code>quarto render &lt;document&gt;</code>: Render the document to its final output format</li>
+<li><code>quarto publish &lt;document&gt;</code>: Publish a document to the Web</li>
 </ul>
 </section>
 <section id="quarto-projects-working-with-multiple-files" class="slide level2">
@@ -1487,8 +1490,8 @@ Make sure to point out leaf colors
 </ul></li>
 </ul>
 </section>
-<section id="creating-a-quarto-project" class="slide level2">
-<h2>Creating a Quarto project</h2>
+<section id="creating-a-quarto-project-i" class="slide level2">
+<h2>Creating a Quarto project I</h2>
 <ul>
 <li>Create a <code>_quarto.yml</code> file in the same folder as your other files</li>
 <li>Anything in this file will be treated as if it were in the front matter of all of the Quarto files in the project
@@ -1496,10 +1499,15 @@ Make sure to point out leaf colors
 <li>Unless specifically overridden</li>
 </ul></li>
 <li>You also have project-specific options, such as where to put rendered output</li>
+</ul>
+</section>
+<section id="creating-a-quarto-project-ii" class="slide level2">
+<h2>Creating a Quarto project II</h2>
+<ul>
 <li>Add the following to the <code>_quarto.yml</code> file</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb49-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb50-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>This will render project output to the <code>docs/</code> folder
 <ul>
@@ -1515,7 +1523,7 @@ Make sure to point out leaf colors
 <li>For instance, let’s put our bibliography in <code>_quarto.yml</code></li>
 <li>Add the following</li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb51-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and remove the corresponding lines from your <code>intro.qmd</code> files</p>
 </section>
 <section id="rendering-your-quarto-project" class="slide level2">
@@ -1531,8 +1539,8 @@ Make sure to point out leaf colors
 <li>A website is just a special type of Quarto project that gets rendered with navigation features, etc.</li>
 <li>To create a Quarto website, just add a <code>type: website</code> under the project information in <code>_quarto.yml</code></li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb51-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb51-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="configuring-a-quarto-website" class="slide level2">
 <h2>Configuring a Quarto website</h2>
@@ -1540,14 +1548,14 @@ Make sure to point out leaf colors
 <li>You can configure your Quarto website with the <code>website:</code> section in <code>_quarto.yml</code></li>
 <li>For instance, this will add a navigation bar with links for your <code>intro.qmd</code> and <code>slides.qmd</code> files</li>
 </ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Black Cherry Trees</span></span>
-<span id="cb52-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navbar</span><span class="kw">:</span></span>
-<span id="cb52-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">left</span><span class="kw">:</span></span>
-<span id="cb52-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> intro.qmd</span></span>
-<span id="cb52-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Introduction</span></span>
-<span id="cb52-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> slides.qmd</span></span>
-<span id="cb52-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Slides</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb53-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Black Cherry Trees</span></span>
+<span id="cb53-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb53-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb53-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> intro.qmd</span></span>
+<span id="cb53-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Introduction</span></span>
+<span id="cb53-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> slides.qmd</span></span>
+<span id="cb53-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Slides</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rendering-your-website" class="slide level2">
 <h2>Rendering your website</h2>
@@ -1563,7 +1571,7 @@ Make sure to point out leaf colors
 <li>This is what folks will see when they open your website</li>
 <li>If you don’t, the first page in the navigation bar will be the default
 <ul>
-<li>Or, potentially, a 404 Not Found, depending on where you host your website (more on this shortly)</li>
+<li>Or, potentially, a 404 Not Found, depending on where you host your website</li>
 </ul></li>
 </ul>
 </section>
@@ -1605,21 +1613,21 @@ Make sure to point out leaf colors
 <ul>
 <li>Put this in the front matter of your Quarto document</li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb53-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Durham Street Trees</span></span>
-<span id="cb53-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> dashboard</span></span>
-<span id="cb53-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb53-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb53-6"><a aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb54-1"><a aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb54-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Durham Street Trees</span></span>
+<span id="cb54-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> dashboard</span></span>
+<span id="cb54-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb54-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb54-6"><a aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="loading-data-and-libraries" class="slide level2">
 <h2>Loading data and libraries</h2>
 <p>Add this code cell just below the front matter, to load the tidyverse library and the data</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb54-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb54-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
-<span id="cb54-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb54-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">data = read_csv("durham_trees.csv")</span></span>
-<span id="cb54-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb55-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb55-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
+<span id="cb55-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb55-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">data = read_csv("durham_trees.csv")</span></span>
+<span id="cb55-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="layout-of-our-dashboard" class="slide level2">
 <h2>Layout of our dashboard</h2>
@@ -1642,11 +1650,11 @@ Make sure to point out leaf colors
 <ul>
 <li>Add the following code cell to create the bar plot by tree height</li>
 </ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb56-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-alt: Graph of tree height showing that trees 0-20 feet tall are by far most common</span></span>
-<span id="cb56-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data, aes(x=heightft)) +</span></span>
-<span id="cb56-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    geom_bar()</span></span>
-<span id="cb56-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb57-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb57-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-alt: Graph of tree height showing that trees 0-20 feet tall are by far most common</span></span>
+<span id="cb57-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data, aes(x=heightft)) +</span></span>
+<span id="cb57-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    geom_bar()</span></span>
+<span id="cb57-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="adding-the-second-row" class="slide level2">
 <h2>Adding the second row</h2>
@@ -1657,31 +1665,31 @@ Make sure to point out leaf colors
 </section>
 <section id="adding-the-popularity-by-genus" class="slide level2">
 <h2>Adding the popularity by genus</h2>
-<div class="sourceCode" id="cb58"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb58-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb58-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham</span></span>
-<span id="cb58-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">data %&gt;%</span></span>
-<span id="cb58-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    count(genus) %&gt;%</span></span>
-<span id="cb58-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">    filter(n &gt; 100) %&gt;%</span></span>
-<span id="cb58-6"><a aria-hidden="true" tabindex="-1"></a><span class="in">    arrange(genus) %&gt;%</span></span>
-<span id="cb58-7"><a aria-hidden="true" tabindex="-1"></a><span class="in">    ggplot(aes(y=genus, x=n)) +</span></span>
-<span id="cb58-8"><a aria-hidden="true" tabindex="-1"></a><span class="in">        geom_col()</span></span>
-<span id="cb58-9"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb59-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb59-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham</span></span>
+<span id="cb59-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">data %&gt;%</span></span>
+<span id="cb59-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    count(genus) %&gt;%</span></span>
+<span id="cb59-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">    filter(n &gt; 100) %&gt;%</span></span>
+<span id="cb59-6"><a aria-hidden="true" tabindex="-1"></a><span class="in">    arrange(genus) %&gt;%</span></span>
+<span id="cb59-7"><a aria-hidden="true" tabindex="-1"></a><span class="in">    ggplot(aes(y=genus, x=n)) +</span></span>
+<span id="cb59-8"><a aria-hidden="true" tabindex="-1"></a><span class="in">        geom_col()</span></span>
+<span id="cb59-9"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="adding-the-heatmap" class="slide level2">
 <h2>Adding the heatmap</h2>
-<div class="sourceCode" id="cb59"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb59-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb59-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-alt: Plot showing the heaviest density of trees near Downtown Durham</span></span>
-<span id="cb59-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data, aes(x=X, y=Y)) +</span></span>
-<span id="cb59-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    geom_density_2d_filled()</span></span>
-<span id="cb59-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb60-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb60-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-alt: Plot showing the heaviest density of trees near Downtown Durham</span></span>
+<span id="cb60-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data, aes(x=X, y=Y)) +</span></span>
+<span id="cb60-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    geom_density_2d_filled()</span></span>
+<span id="cb60-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="add-the-dashboard-to-your-website-navigation" class="slide level2">
 <h2>Add the dashboard to your website navigation</h2>
 <ul>
 <li>In your <code>_quarto.yml</code>, add to the <code>navbar: left:</code> section</li>
 </ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb60-1"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> dashboard.qmd</span></span>
-<span id="cb60-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Dashboard</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb61-1"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> dashboard.qmd</span></span>
+<span id="cb61-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Dashboard</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Preview your website again</li>
 <li>You could also preview just the dashboard by clicking Render in RStudio with <code>dashboard.qmd</code> open</li>
@@ -1704,6 +1712,7 @@ Make sure to point out leaf colors
 <h2>Using Quarto Pub</h2>
 <ul>
 <li>Just run <code>quarto publish</code> in the directory where your <code>_quarto.yml</code> file is</li>
+<li>This will render and publish <em>all</em> <code>*.qmd</code> files in the current directory and subdirectories</li>
 <li>The first time you use it, you will be prompted to create an account</li>
 <li>Your website will be available at <code>https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;</code></li>
 <li>You can also publish a single document with <code>quarto publish &lt;document&gt;.qmd</code></li>

@@ -134,7 +134,7 @@ two paragraphs
 ## Markdown syntax: bold and italic
 
 - **Bold** text is created by surrounding text with `**`
-_ _Italic_ text is created by surrounding text with `_` or `*`
+- _Italic_ text is created by surrounding text with `_` or `*`
 - These symbols must immediately precede or follow words/punctuation; there cannot be spaces between the symbol and the text
 
 ```
@@ -330,10 +330,13 @@ ggplot(trees, aes(x=Height)) +
 - Charts are a graphical element, and are not accessible to all individuals
 - Many visually-impaired individuals will use a _screen reader_, software that speaks the text on their screen out loud
 - All charts should either have alternative (alt) text, or be fully described in the text of the report
-- For small charts, you can list the values in the alt text (e.g. the percentages drving alone, etc.)
+- For small charts, you can list the values in the alt text
 - For larger charts, you should describe overall trends/findings
 - For many organizations, ensuring accessibility is a legal requirement under Section 508 of the Americans with Disabilities Act
-- You can add alt text to your figures by adding the Quarto comment `#| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80`
+- You can add alt text to your figures by adding the Quarto comment 
+```
+#| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80
+```
 
 ## Figure numbering
 
@@ -953,6 +956,7 @@ format: pptx
 
 - `quarto preview <document>`: Preview the document, open in a web browser and automatically update as the document is edited
 - `quarto render <document>`: Render the document to its final output format
+- `quarto publish <document>`: Publish a document to the Web
 
 ## Quarto _projects_: working with multiple files
 
@@ -968,12 +972,15 @@ format: pptx
 - The main file is `_quarto.yml` which should be in the same folder as your Quarto documents
     - For better organization, you can also put Quarto documents in subfolders of the project
 
-## Creating a Quarto project
+## Creating a Quarto project I
 
 - Create a `_quarto.yml` file in the same folder as your other files
 - Anything in this file will be treated as if it were in the front matter of all of the Quarto files in the project
     - Unless specifically overridden
 - You also have project-specific options, such as where to put rendered output
+
+## Creating a Quarto project II
+
 - Add the following to the `_quarto.yml` file
 ```yaml
 project:
@@ -1032,7 +1039,7 @@ website:
 - Generally, you would name your main page `index.qmd`
 - This is what folks will see when they open your website
 - If you don't, the first page in the navigation bar will be the default
-    - Or, potentially, a 404 Not Found, depending on where you host your website (more on this shortly)
+    - Or, potentially, a 404 Not Found, depending on where you host your website
 
 ## Dashboards
 
@@ -1156,6 +1163,7 @@ ggplot(data, aes(x=X, y=Y)) +
 ## Using Quarto Pub
 
 - Just run `quarto publish` in the directory where your `_quarto.yml` file is
+- This will render and publish _all_ `*.qmd` files in the current directory and subdirectories
 - The first time you use it, you will be prompted to create an account
 - Your website will be available at `https://<username>.quarto.pub/<site-title>`
 - You can also publish a single document with `quarto publish <document>.qmd`

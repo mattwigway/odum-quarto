@@ -88,7 +88,7 @@
     "href": "slides/index.html#markdown-syntax-bold-and-italic",
     "title": "Introduction to Quarto",
     "section": "Markdown syntax: bold and italic",
-    "text": "Markdown syntax: bold and italic\n\nBold text is created by surrounding text with ** _ Italic text is created by surrounding text with _ or *\nThese symbols must immediately precede or follow words/punctuation; there cannot be spaces between the symbol and the text\n\n**Bold text**\n\n_Italic text_\n\n*Italic text*"
+    "text": "Markdown syntax: bold and italic\n\nBold text is created by surrounding text with **\nItalic text is created by surrounding text with _ or *\nThese symbols must immediately precede or follow words/punctuation; there cannot be spaces between the symbol and the text\n\n**Bold text**\n\n_Italic text_\n\n*Italic text*"
   },
   {
     "objectID": "slides/index.html#markdown-syntax-bulleted-lists",
@@ -228,7 +228,7 @@
     "href": "slides/index.html#alternative-text",
     "title": "Introduction to Quarto",
     "section": "Alternative text",
-    "text": "Alternative text\n\nCharts are a graphical element, and are not accessible to all individuals\nMany visually-impaired individuals will use a screen reader, software that speaks the text on their screen out loud\nAll charts should either have alternative (alt) text, or be fully described in the text of the report\nFor small charts, you can list the values in the alt text (e.g. the percentages drving alone, etc.)\nFor larger charts, you should describe overall trends/findings\nFor many organizations, ensuring accessibility is a legal requirement under Section 508 of the Americans with Disabilities Act\nYou can add alt text to your figures by adding the Quarto comment #| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80"
+    "text": "Alternative text\n\nCharts are a graphical element, and are not accessible to all individuals\nMany visually-impaired individuals will use a screen reader, software that speaks the text on their screen out loud\nAll charts should either have alternative (alt) text, or be fully described in the text of the report\nFor small charts, you can list the values in the alt text\nFor larger charts, you should describe overall trends/findings\nFor many organizations, ensuring accessibility is a legal requirement under Section 508 of the Americans with Disabilities Act\nYou can add alt text to your figures by adding the Quarto comment\n\n#| fig-alt: Chart showing that cherry tree highes are distributed from 60-90 feet, with peaks near 75 and 80"
   },
   {
     "objectID": "slides/index.html#figure-numbering",
@@ -662,7 +662,7 @@
     "href": "slides/index.html#useful-quarto-commands",
     "title": "Introduction to Quarto",
     "section": "Useful Quarto commands",
-    "text": "Useful Quarto commands\n\nquarto preview &lt;document&gt;: Preview the document, open in a web browser and automatically update as the document is edited\nquarto render &lt;document&gt;: Render the document to its final output format"
+    "text": "Useful Quarto commands\n\nquarto preview &lt;document&gt;: Preview the document, open in a web browser and automatically update as the document is edited\nquarto render &lt;document&gt;: Render the document to its final output format\nquarto publish &lt;document&gt;: Publish a document to the Web"
   },
   {
     "objectID": "slides/index.html#quarto-projects-working-with-multiple-files",
@@ -679,11 +679,18 @@
     "text": "Structure of a Quarto project\n\nThe main file is _quarto.yml which should be in the same folder as your Quarto documents\n\nFor better organization, you can also put Quarto documents in subfolders of the project"
   },
   {
-    "objectID": "slides/index.html#creating-a-quarto-project",
-    "href": "slides/index.html#creating-a-quarto-project",
+    "objectID": "slides/index.html#creating-a-quarto-project-i",
+    "href": "slides/index.html#creating-a-quarto-project-i",
     "title": "Introduction to Quarto",
-    "section": "Creating a Quarto project",
-    "text": "Creating a Quarto project\n\nCreate a _quarto.yml file in the same folder as your other files\nAnything in this file will be treated as if it were in the front matter of all of the Quarto files in the project\n\nUnless specifically overridden\n\nYou also have project-specific options, such as where to put rendered output\nAdd the following to the _quarto.yml file\n\nproject:\n    output-dir: docs\n\nThis will render project output to the docs/ folder\n\nYou can render to any folder, but rendering to docs/ will let you easily post your rendered documents to Github Pages by just committing your project to Github\nThis is how I post these slides on the web, for example"
+    "section": "Creating a Quarto project I",
+    "text": "Creating a Quarto project I\n\nCreate a _quarto.yml file in the same folder as your other files\nAnything in this file will be treated as if it were in the front matter of all of the Quarto files in the project\n\nUnless specifically overridden\n\nYou also have project-specific options, such as where to put rendered output"
+  },
+  {
+    "objectID": "slides/index.html#creating-a-quarto-project-ii",
+    "href": "slides/index.html#creating-a-quarto-project-ii",
+    "title": "Introduction to Quarto",
+    "section": "Creating a Quarto project II",
+    "text": "Creating a Quarto project II\n\nAdd the following to the _quarto.yml file\n\nproject:\n    output-dir: docs\n\nThis will render project output to the docs/ folder\n\nYou can render to any folder, but rendering to docs/ will let you easily post your rendered documents to Github Pages by just committing your project to Github\nThis is how I post these slides on the web, for example"
   },
   {
     "objectID": "slides/index.html#common-options-for-all-documents",
@@ -725,7 +732,7 @@
     "href": "slides/index.html#creating-a-default-file",
     "title": "Introduction to Quarto",
     "section": "Creating a default file",
-    "text": "Creating a default file\n\nGenerally, you would name your main page index.qmd\nThis is what folks will see when they open your website\nIf you don’t, the first page in the navigation bar will be the default\n\nOr, potentially, a 404 Not Found, depending on where you host your website (more on this shortly)"
+    "text": "Creating a default file\n\nGenerally, you would name your main page index.qmd\nThis is what folks will see when they open your website\nIf you don’t, the first page in the navigation bar will be the default\n\nOr, potentially, a 404 Not Found, depending on where you host your website"
   },
   {
     "objectID": "slides/index.html#dashboards",
@@ -830,7 +837,7 @@
     "href": "slides/index.html#using-quarto-pub",
     "title": "Introduction to Quarto",
     "section": "Using Quarto Pub",
-    "text": "Using Quarto Pub\n\nJust run quarto publish in the directory where your _quarto.yml file is\nThe first time you use it, you will be prompted to create an account\nYour website will be available at https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;\nYou can also publish a single document with quarto publish &lt;document&gt;.qmd"
+    "text": "Using Quarto Pub\n\nJust run quarto publish in the directory where your _quarto.yml file is\nThis will render and publish all *.qmd files in the current directory and subdirectories\nThe first time you use it, you will be prompted to create an account\nYour website will be available at https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;\nYou can also publish a single document with quarto publish &lt;document&gt;.qmd"
   },
   {
     "objectID": "slides/index.html#questionsresources",
