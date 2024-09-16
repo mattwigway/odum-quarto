@@ -1024,9 +1024,9 @@ website:
     navbar:
         left:
             - href: intro.qmd
-              name: Introduction
+              text: Introduction
             - href: slides.qmd
-              name: Slides
+              text: Slides
 ```
 
 ## Rendering your website
@@ -1124,7 +1124,7 @@ ggplot(data, aes(x=heightft)) +
 ## Adding the popularity by genus
 
 ```{{r}}
-#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham
+#| fig-alt: Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham
 data %>%
     count(genus) %>%
     filter(n > 100) %>%
@@ -1166,7 +1166,7 @@ ggplot(data, aes(x=X, y=Y)) +
 - This will render and publish _all_ `*.qmd` files in the current directory and subdirectories
 - The first time you use it, you will be prompted to create an account
 - Your website will be available at `https://<username>.quarto.pub/<site-title>`
-- You can also publish a single document with `quarto publish <document>.qmd`
+- You can also publish a single document that is not part of a project with `quarto publish <document>.qmd`
 
 ## Questions/resources
 

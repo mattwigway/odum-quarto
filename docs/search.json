@@ -718,7 +718,7 @@
     "href": "slides/index.html#configuring-a-quarto-website",
     "title": "Introduction to Quarto",
     "section": "Configuring a Quarto website",
-    "text": "Configuring a Quarto website\n\nYou can configure your Quarto website with the website: section in _quarto.yml\nFor instance, this will add a navigation bar with links for your intro.qmd and slides.qmd files\n\nwebsite:\n    title: Black Cherry Trees\n    navbar:\n        left:\n            - href: intro.qmd\n              name: Introduction\n            - href: slides.qmd\n              name: Slides"
+    "text": "Configuring a Quarto website\n\nYou can configure your Quarto website with the website: section in _quarto.yml\nFor instance, this will add a navigation bar with links for your intro.qmd and slides.qmd files\n\nwebsite:\n    title: Black Cherry Trees\n    navbar:\n        left:\n            - href: intro.qmd\n              text: Introduction\n            - href: slides.qmd\n              text: Slides"
   },
   {
     "objectID": "slides/index.html#rendering-your-website",
@@ -809,7 +809,7 @@
     "href": "slides/index.html#adding-the-popularity-by-genus",
     "title": "Introduction to Quarto",
     "section": "Adding the popularity by genus",
-    "text": "Adding the popularity by genus\n```{r}\n#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham\ndata %&gt;%\n    count(genus) %&gt;%\n    filter(n &gt; 100) %&gt;%\n    arrange(genus) %&gt;%\n    ggplot(aes(y=genus, x=n)) +\n        geom_col()\n```"
+    "text": "Adding the popularity by genus\n```{r}\n#| fig-alt: Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham\ndata %&gt;%\n    count(genus) %&gt;%\n    filter(n &gt; 100) %&gt;%\n    arrange(genus) %&gt;%\n    ggplot(aes(y=genus, x=n)) +\n        geom_col()\n```"
   },
   {
     "objectID": "slides/index.html#adding-the-heatmap",
@@ -837,7 +837,7 @@
     "href": "slides/index.html#using-quarto-pub",
     "title": "Introduction to Quarto",
     "section": "Using Quarto Pub",
-    "text": "Using Quarto Pub\n\nJust run quarto publish in the directory where your _quarto.yml file is\nThis will render and publish all *.qmd files in the current directory and subdirectories\nThe first time you use it, you will be prompted to create an account\nYour website will be available at https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;\nYou can also publish a single document with quarto publish &lt;document&gt;.qmd"
+    "text": "Using Quarto Pub\n\nJust run quarto publish in the directory where your _quarto.yml file is\nThis will render and publish all *.qmd files in the current directory and subdirectories\nThe first time you use it, you will be prompted to create an account\nYour website will be available at https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;\nYou can also publish a single document that is not part of a project with quarto publish &lt;document&gt;.qmd"
   },
   {
     "objectID": "slides/index.html#questionsresources",

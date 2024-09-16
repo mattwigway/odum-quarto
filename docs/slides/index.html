@@ -1553,9 +1553,9 @@ Make sure to point out leaf colors
 <span id="cb53-3"><a aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navbar</span><span class="kw">:</span></span>
 <span id="cb53-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">left</span><span class="kw">:</span></span>
 <span id="cb53-5"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> intro.qmd</span></span>
-<span id="cb53-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Introduction</span></span>
+<span id="cb53-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Introduction</span></span>
 <span id="cb53-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> slides.qmd</span></span>
-<span id="cb53-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Slides</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Slides</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rendering-your-website" class="slide level2">
 <h2>Rendering your website</h2>
@@ -1666,7 +1666,7 @@ Make sure to point out leaf colors
 <section id="adding-the-popularity-by-genus" class="slide level2">
 <h2>Adding the popularity by genus</h2>
 <div class="sourceCode" id="cb59"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb59-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb59-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham</span></span>
+<span id="cb59-2"><a aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-alt: Bar plot showing that Quercus (oak), Lagerstroemia (crepe myrtle), Acer (maple), and Ulmus (pine) are the most common street trees in Durham</span></span>
 <span id="cb59-3"><a aria-hidden="true" tabindex="-1"></a><span class="in">data %&gt;%</span></span>
 <span id="cb59-4"><a aria-hidden="true" tabindex="-1"></a><span class="in">    count(genus) %&gt;%</span></span>
 <span id="cb59-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">    filter(n &gt; 100) %&gt;%</span></span>
@@ -1715,7 +1715,7 @@ Make sure to point out leaf colors
 <li>This will render and publish <em>all</em> <code>*.qmd</code> files in the current directory and subdirectories</li>
 <li>The first time you use it, you will be prompted to create an account</li>
 <li>Your website will be available at <code>https://&lt;username&gt;.quarto.pub/&lt;site-title&gt;</code></li>
-<li>You can also publish a single document with <code>quarto publish &lt;document&gt;.qmd</code></li>
+<li>You can also publish a single document that is not part of a project with <code>quarto publish &lt;document&gt;.qmd</code></li>
 </ul>
 </section>
 <section id="questionsresources" class="slide level2">
